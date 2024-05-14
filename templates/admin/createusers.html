@@ -1,0 +1,632 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <title> User Login</title>
+
+ <!-- Meta -->
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
+ <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+ <link rel="shortcut icon" href="favicon.ico">
+
+ <!-- FontAwesome JS-->
+ <script defer src="assets/plugins/fontawesome/js/all.min.js"></script>
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <!-- App CSS -->
+ <link id="theme-style" rel="stylesheet" href="{% static 'css/portal.css' %}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <!-- Custom CSS -->
+    <link href="{% static 'css/css/shop-homepage.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/css/shop-homepage.css' %}" rel="stylesheet">
+    <link href="{% static 'css/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+
+<body class="app app-login p-0">
+
+
+
+
+
+<header class="app-header fixed-top">
+    <div class="app-header-inner">
+     <div class="container-fluid py-2">
+      <div class="app-header-content">
+       <div class="row justify-content-end align-items-center">
+   
+        <div class="col-auto">
+         <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none" href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img">
+           <title>Menu</title>
+           <path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path>
+          </svg>
+         </a>
+        </div>
+        <!--//col-->
+   
+   
+        <div class="app-utilities col-auto">
+         <!--//app-utility-item-->
+         <!--//app-utility-item-->
+   
+         <div class="app-utility-item app-user-dropdown dropdown">
+          <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Hi Admin <img src="{% static 'img/undraw_profile.svg' %}" alt="user profile"></a>
+          <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
+   
+           <li>
+            <hr class="dropdown-divider">
+           </li>
+           <li><a class="dropdown-item" href="?v=off">Log Out</a></li>
+          </ul>
+         </div>
+         <!--//app-user-dropdown-->
+        </div>
+        <!--//app-utilities-->
+       </div>
+       <!--//row-->
+      </div>
+      <!--//app-header-content-->
+     </div>
+     <!--//container-fluid-->
+    </div>
+    <!--//app-header-inner-->
+    <div id="app-sidepanel" class="app-sidepanel">
+     <div id="sidepanel-drop" class="sidepanel-drop"></div>
+     <div class="sidepanel-inner d-flex flex-column">
+      <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
+      <div class="app-branding">
+       <a class="app-logo" href="admin-dash"><img class="logo-icon me-2" src="{% static 'img/peshey.png' %}" alt="logo">
+        <!--<span class="logo-text">REGISTER</span>-->
+       </a>
+   
+      </div>
+      <!--//app-branding-->
+   
+      <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
+       <ul class="app-menu list-unstyled accordion" id="menu-accordion">
+       
+
+
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/mydashboard' %}">
+             <span class="nav-icon">
+              <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer" viewBox="0 0 16 16">
+               <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2zM3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z" />
+               <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z" />
+              </svg>
+             </span>
+             <span class="nav-link-text">Dashboard</span>
+            </a>
+           </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/myprofile' %}">
+             <span class="nav-icon">
+              <i class="fas fa-user"></i>
+             </span>
+             <span class="nav-link-text">Profile</span>
+            </a>
+           </li>
+           
+          
+
+           
+
+           <li class="nav-item active">
+            <a class="nav-link active" href="{% url 'admin/createusers' %}">
+             <span class="nav-icon">
+              <i class="fas fa-pen"></i>
+             </span>
+             <span class="nav-link-text">Create user</span>
+            </a>
+           </li>
+
+
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/updateusers' %}">
+             <span class="nav-icon">
+              <i class="fas fa-pen"></i>
+             </span>
+             <span class="nav-link-text">Update user</span>
+            </a>
+           </li>
+
+
+           <li class="nav-item active">
+            <a class="nav-link" href="{% url 'admin/createresellers' %}">
+                <span class="nav-icon">
+                    <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                     <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                     <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" />
+                     <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+                    </svg>
+                   </span>
+             <span class="nav-link-text">Create reseller</span>
+            </a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/updateresellers' %}">
+             <span class="nav-icon">
+              <i class="fas fa-pen"></i>
+             </span>
+             <span class="nav-link-text">Update reseller</span>
+            </a>
+           </li>
+
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/senderids' %}">
+             <span class="nav-icon">
+                <i class="material-icons">folder_shared</i>
+             </span>
+             <span class="nav-link-text">Request sender id</span>
+            </a>
+           </li>
+
+
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/requesttemplates' %}">
+             <span class="nav-icon"> 
+                <i class="fas fa-splotch"></i>
+             </span>
+             <span class="nav-link-text">Template approval</span>
+            </a>
+           </li>
+
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/misreports' %}">
+             <span class="nav-icon">
+                <i class="fas fa-chalkboard"></i>
+             </span>
+             <span class="nav-link-text">MIS Reports</span>
+            </a>
+           </li>
+<hr>
+
+         <li class="nav-item has-submenu">
+          <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+          <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-1" aria-expanded="false" aria-controls="submenu-1">
+           <span class="nav-icon">
+            <i class="material-icons">kitchen</i>
+           </span>
+           <span class="nav-link-text">Credit management</span>
+           <span class="submenu-arrow">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+             <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+            </svg>
+           </span>
+           <!--//submenu-arrow-->
+          </a>
+          <!--//nav-link-->
+          
+         </li>
+      <hr>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'admin/creditshistory' %}">
+         <span class="nav-icon">
+          <i class="material-icons">schedule</i>
+         </span>
+         <span class="nav-link-text">My credit history</span>
+        </a>
+       </li>
+
+       <li class="nav-item">
+        <a class="nav-link" href="{% url 'admin/creditassingmentusers' %}">
+         <span class="nav-icon">
+            <i class="material-icons">loyalty</i>
+         </span>
+         <span class="nav-link-text">Credit assignment user</span>
+        </a>
+       </li>
+
+
+       <li class="nav-item ">
+        <a class="nav-link " href="{% url 'admin/creditassingmentreseller' %}">
+         <span class="nav-icon"> 
+            <i class="fas fa-splotch"></i>
+         </span>
+         <span class="nav-link-text">Credit assignment reseller</span>
+        </a>
+       </li>
+
+       <li class="nav-item">
+        <a class="nav-link" href="{% url 'admin/creditshistory' %}">
+         <span class="nav-icon">
+          <i class="material-icons">history</i>
+         </span>
+         <span class="nav-link-text">User credit history</span>
+        </a>
+       </li>
+
+
+
+
+
+        </nav>
+      <!--//app-nav-->
+      <div class="app-sidepanel-footer">
+       <nav class="app-nav app-nav-footer">
+        <ul class="app-menu footer-menu list-unstyled">
+   
+         <!--//nav-item-->
+         <li class="nav-item">
+          <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+          <a class="nav-link" href="{% url 'admin/logout' %}">
+           <span class="nav-icon">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-toggle-on" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+             <path fill-rule="evenodd" d="M12 1H4a1 1 0 0 0-1 1v10.755S4 11 8 11s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z" />
+             <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+            </svg>
+           </span>
+           <span class="nav-link-text">Logout</span>
+          </a>
+          <!--//nav-link-->
+         </li>
+         <!--//nav-item-->
+        </ul>
+        <!--//footer-menu-->
+       </nav>
+      </div>
+      <!--//app-sidepanel-footer-->
+   
+     </div>
+     <!--//sidepanel-inner-->
+    </div>
+    <!--//app-sidepanel-->
+   </header>
+   <!--//app-header-->
+
+
+
+   <div id="authwrapper" class="row g-0 app-auth-wrapper" style="background: transparent;">
+    <!-- <div class="col-12 col-md-7 col-lg-12 auth-main-col text-center p-5"> -->
+  
+    
+
+        <style>
+            @media (min-width: 800px) {
+                #tableid{
+        margin-left: 160px;
+    }
+}
+             @media (min-width: 1200px) {
+    #maindiv {
+      margin-left: 300px; /* Adjust the value as needed */
+      margin-top: 60px;
+    }
+    #container{
+        margin-left: 130px;
+    }
+    #authwrapper{
+        margin-left: 20px;
+    }
+    #tableid{
+        margin-left: 420px;
+    }
+  }
+  #maindiv{
+    overflow: visible;
+  }
+  #container{
+    overflow: visible;
+  }
+  #authwrapper{
+    overflow: visible;
+  }
+  .app{
+    background: #fff;
+  }
+.active
+{
+  color: #4e73df;
+}
+.nav-item .nav-link .active {
+        color: #4e73df; /* Change the color to your desired color */
+        /* Add any other styles you want for the active state */
+    }
+     /* #getcontactdivs{
+        display: block;
+     } */
+        </style>
+
+
+
+
+
+
+<div class="col-md-9" id="maindiv">
+<form id="createuserform" action="{% url 'admin/postnewuser' %}" method="post">
+    {% csrf_token %}
+<div class="col-lg-12">
+<h1>Create Users</h1>
+<div class="row">
+<div class="col-lg-4">
+<div class="form-group">
+    <label>User email<span style="color:red">*</span></label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span id="user_label" style="text-align:right;"></span>
+    <input id="add_user_id" name="useremail" class="form-control" value="" placeholder="Enter User email here" autofocus required>
+</div>
+<div class="form-group">
+    <label>Password<span style="color:red">*</span></label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span id="pwdlabel"></span>
+    <input name="pwd" onchange="pwdlength()" id="pwd1" value="" type="password" class="form-control" placeholder="Enter Password here" required>
+</div>
+<div class="form-group">
+    <label>Confirm Password<span style="color:red">*</span></label>
+    <input type="password" id="pwd2" onchange="pwdconfirm()" value="" class="form-control" placeholder="Confirm Password" required>
+</div>
+<div class="form-group">
+<label>Customer Id</label>
+<input name="customerid" id="customerid" disabled="disabled" value="smsairworks" style="overflow-x:hidden;overflow-y:scroll" class="form-control">
+</div>
+<div class="form-group">
+    <label>Choose Provider</label>
+    <select name="sms_provider_id_trans" style="overflow-x:hidden;overflow-y:scroll" class="form-control">
+<option value='161'>Premium SMS</option><option value='171'>Backup Company SMS</option>	</select>
+</div>
+<div class="form-group">
+<label>User Status<span style="color:red">*</span></label>
+<select id="userstatus" name="userstatus" style="overflow-x:hidden;overflow-y:scroll" class="form-control" required>
+<option value="" selected disabled="disabled">Select User Status</option>
+<option value="1">Active</option>
+<option value="0">Inactive</option>
+</select>
+</div>
+<div class="form-group getcontactdivs" id="getcontactdivs">
+    <label>Select county<span style="color:red">*</span></label>
+    <select name="county" class="form-control input-md" id="county">
+                <option value="0">Select county</option>
+                <option value="1">Mombasa</option>
+                <option value="2">Kwale</option>
+                <option value="3">Kilifi</option>
+                <option value="4">Tana River</option>
+                <option value="5">Lamu</option>
+                <option value="6">Taita-Taveta</option>
+                <option value="7">Garissa</option>
+                <option value="8">Wajir</option>
+                <option value="9">Mandera</option>
+                <option value="10">Marsabit</option>
+                <option value="11">Isiolo</option>
+                <option value="12">Meru</option>
+                <option value="13">Tharaka-Nithi</option>
+                <option value="14">Embu</option>
+                <option value="15">Kitui</option>
+                <option value="16">Machakos</option>
+                <option value="17">Makueni</option>
+                <option value="18">Nyandarua</option>
+                <option value="19">Nyeri</option>
+                <option value="20">Kirinyaga</option>
+                <option value="21">Murang'a</option>
+                <option value="22">Kiambu</option>
+                <option value="23">Turkana</option>
+                <option value="24">West Pokot</option>
+                <option value="25">Samburu</option>
+                <option value="26">Trans-Nzoia</option>
+                <option value="27">Uasin Gishu</option>
+                <option value="28">Elgeyo-Marakwet</option>
+                <option value="29">Nandi</option>
+                <option value="30">Baringo</option>
+                <option value="31">Laikipia</option>
+                <option value="32">Nakuru</option>
+                <option value="33">Narok</option>
+                <option value="34">Kajiado</option>
+                <option value="35">Kericho</option>
+                <option value="36">Bomet</option>
+                <option value="37">Kakamega</option>
+                <option value="38">Vihiga</option>
+                <option value="39">Bungoma</option>
+                <option value="40">Busia</option>
+                <option value="41">Siaya</option>
+                <option value="42">Kisumu</option>
+                <option value="43">Homa Bay</option>
+                <option value="44">Migori</option>
+                <option value="45">Kisii</option>
+                <option value="46">Nyamira</option>
+
+                <option value="47">Nairobi</option>
+
+            <option value="">No contacts</option>
+    </select>    
+</div>
+
+<div class="form-group getcontactdivs" id="getcontactdivs">
+    <label>ward ID</label>
+    <input id="wardid" name="wardid" value="" class="form-control" placeholder="Enter ward ID here">
+</div>
+
+
+
+
+</div>
+<div class="col-lg-4">
+	<div class="form-group">
+    <label>Mobile Number<span style="color:red">*</span></label><br/>
+    <label><input id="countrycode" name="countrycode" style="width:50px" maxlength="4" class="form-control" value="254" placeholder="+254"></label><label class="radio-inline"><input maxlength="10" style="width:180px" name="mobile" value="" onchange="mobilevalidation()" id="mobile_number" class="form-control" placeholder="Enter mobile Number" onkeypress='mob_validate(event)' required></label>
+</div>
+<div class="form-group">
+    <label>Address<span style="color:red">*</span></label>
+    <input id="address" name="address" value="" class="form-control" placeholder="Enter Address here">
+</div>
+<div class="form-group">
+    <label>Firm Name<span style="color:red">*</span></label>
+    <input id="firmname" name="firmname" type="text" class="form-control" value="" placeholder="Enter Firm Name here" required>
+</div>
+<div class="form-group">
+    <label>Expired On<span style="color:red">*</span>  (YYYY-MM-DD)</label>
+    <input name="expired_on" id="expired_on" type="text" class="form-control datepicker" value="1970-01-01 23:59:59" placeholder="Select Expiry Date" required>
+	<span id="expiry_label" style="text-align:right;color:red"></span>
+</div>
+
+<div class="form-group">
+    <label>SMS Price<span style="color:red">*</span></label>
+    <input id="sms_price" name="sms_price" type="text" class="form-control" value="" placeholder="Enter SMS Price here" >
+</div>
+
+<div class="form-group">
+<label>User Type<span style="color:red">*</span></label>
+<select id="user_type" name="user_type" style="overflow-x:hidden;overflow-y:scroll" class="form-control">
+<option value="" selected disabled="disabled">Select User Type</option>
+<option value="1">Bulk SMS</option>
+<option value="2">Sms Short Code</option>
+<option value="3">Ussd</option>
+</select>
+</div>
+
+
+<div class="form-group getcontactdivs" id="getcontactdivs">
+    <label>Constituency ID</label>
+    <input id="constituency" name="constituency" value="" class="form-control" placeholder="Enter constituency ID here">
+</div>
+<div class="form-group getcontactdivs" id="getcontactdivs">
+    <label>polling station ID</label>
+    <input id="pollid" name="pollid" value="" class="form-control" placeholder="Enter polling station ID here">
+</div>
+
+</div>
+<div class="col-lg-4">
+<div class="form-group">
+<label>Hide Campaign Number<span style="color:red">*</span></label>
+<select name="campaignuser" style="overflow-x:hidden;overflow-y:scroll" class="form-control" required="">
+<option value="" selected="true" disabled="disabled">Select Campaign User status</option>
+<option value="1">Enable</option>
+<option value="0">Disable</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>HTTP API</label>
+<select name="httpapi" style="overflow-x:hidden;overflow-y:scroll" class="form-control">
+<option value="" selected="true" disabled="disabled">Select HTTP API status</option>
+<option value="1">Enable</option>
+<option value="0">Disable</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Panel</label>
+<select name="panel" style="overflow-x:hidden;overflow-y:scroll" class="form-control">
+<option value="" selected="true" disabled="disabled">Select Panel status</option>
+<option value="1">Enable</option>
+<option value="0">Disable</option>
+</select>
+</div>
+<div class="form-group">
+<label>MIS</label>
+<select name="mis" style="overflow-x:hidden;overflow-y:scroll" class="form-control">
+<option value="" selected="true" disabled="disabled">Select MIS status</option>
+<option value="1">Enable</option>
+<option value="0">Disable</option>
+</select>
+</div>
+<div class="form-group">
+<label>User Mode</label>
+<select id="user_mode" name="usermode" style="overflow-x:hidden;overflow-y:scroll" class="form-control" required>
+<option selected value="" selected="true" disabled="disabled">Select User Mode</option>
+<option  value="1">Prepaid</option>
+<option  value="2">Postpaid</option>
+</select>
+</div>
+<div class="form-group">
+    <label>Enable campaign contacts</label>
+    <select id="use_type" name="use_type" onchange="toggleContactArea();" style="overflow-x:hidden;overflow-y:scroll" class="form-control">
+    <option value="" selected disabled="disabled">Grant access</option>
+    <option value="1">Enable</option>
+    <option value="2">Disable</option>
+    </select>
+    </div>
+    
+
+<div style="text-align:center" class="form-group">
+<label class="checkbox-inline"><input name="chk_box" value="agree" type="checkbox">I agree to terms & conditions.</label>
+</div>
+<div style="text-align:center" class="form-group">
+<input id="btn_submit" name="btn_submit" style="width:80%" onmouseover="123()" type="submit" label="Create Account" class="btn btn-primary">
+</div>
+</div>
+
+</div>
+</div>
+</form>
+
+            </div>
+
+        </div>
+       
+
+
+  
+      
+    
+  
+    </div>
+   </div>
+  
+
+
+
+
+
+
+
+   <footer class="app-footer">
+    <div class="container text-center py-3">
+   
+     <small class="copyright"> All Rights reserved 2022</small>
+   
+    </div>
+   </footer>
+
+   <script src="{% static 'js/js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/js/bootstrap.min.js' %}"></script>
+   
+<script>
+// Select all elements with class "getcontactdivs"
+var getcontactdivs = document.getElementsByClassName("getcontactdivs");
+
+// Loop through each element and hide it
+for (var i = 0; i < getcontactdivs.length; i++) {
+    getcontactdivs[i].style.display = "none";
+}
+
+function showcontactarea() {
+    // Loop through each element and show it
+    for (var i = 0; i < getcontactdivs.length; i++) {
+        getcontactdivs[i].style.display = "block";
+    }
+}
+
+function hidecontactarea() {
+    // Loop through each element and hide it
+    for (var i = 0; i < getcontactdivs.length; i++) {
+        getcontactdivs[i].style.display = "none";
+    }
+}
+
+hidecontactarea();
+
+function toggleContactArea() {
+    var userTypeSelect = document.getElementById("use_type");
+    var selectedValue = userTypeSelect.value;
+    console.log("changed")
+    if (selectedValue === "1") {
+        showcontactarea();
+    } else if (selectedValue === "2") {
+        hidecontactarea();
+    }
+}
+
+</script>
+
+</body>
+
+</html>

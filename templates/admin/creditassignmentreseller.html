@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Credit Assignment Reseller</title>
+    <link rel="icon" type="image/png" href="image/icon.png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!-- Ajax Library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Ajax Library -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style>
+#logout {
+    background-color: white; 
+    color: black; 
+    border: 4px solid #337ab7;
+}
+
+#logout:hover {
+    background-color: #337ab7;
+    color: white;
+}
+.table-header {
+    float:left;
+    width: 100%;
+}
+.table-body {
+	margin-top:-21px;
+	
+    float:left;
+	height: auto;
+    max-height: 450px;
+    width: inherit;
+    overflow-y: scroll;
+}
+</style>
+
+
+<script>
+//**************Textbox is integer Validation Logic********************
+function text_validate(evt) {
+  var theEvent = evt || window.event;
+  var key = theEvent.keyCode || theEvent.which;
+  key = String.fromCharCode( key );
+  var regex = /[0-9]|\./;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}
+//**************Textbox is integer Validation Logic********************
+
+//************************Revoke Credits logic ***********************
+$(document).ready(function(){
+$("#revoke_btn").one("click", function() {
+	//$('#revoke_btn').attr('disabled', true);
+	//alert("vipin");
+	//return false;
+	var cust_id_revoke = $("#custid_revoke").val();
+	var revoke_amount = $("#amount_revoke").val();
+	var revoke_amount_trans = $("#amount_revoke_trans").val();
+	var cust_id = $("#hid_var2").val();
+	if(cust_id_revoke=="")
+    {
+        alert("Empty Customer ID.");
+        window.location.href = window.location.pathname;
+        return false;
+    }
+	if(revoke_amount==0 && revoke_amount_trans==0)
+	{
+		alert("Empty Amount to be Revoke.");
+		window.location.href = window.location.pathname;
+		return false;
+	}
+	$.ajax({
+	   type:"POST",
+        url:"revoke_credit_customer.php",
+        data:"custid_revoke="+cust_id_revoke+"&revoke_amount="+revoke_amount+"&revoke_amount_trans="+revoke_amount_trans+"&custid="+cust_id,
+        success:function(e)
+        {
+            $("#revoke_done").html(e);
+            $("#custid_revoke").val("");
+            $("#amount_revoke").val("");
+            $("#amount_revoke_trans").val("");
+            $('#revoke_modal').show(0).delay(800).hide(0);
+            setTimeout(function () { window.location.href = window.location.pathname;}, 800);
+
+        }
+		}); 
+	});
+});
+// <!--************************Revoke Credits logic ***********************-->
+// <!--************************Insert Credits logic ***********************-->
+
+//
+
+
+$(document).ready(function(){
+$("#credit_btn").one("click", function() {
+    var cust_id_credit = $("#custid_credit").val();
+    var credit_amount = $("#amount_credit").val();
+    var credit_amount_trans = $("#amount_credit_trans").val();
+    var cust_id = $("#hid_var").val();
+    if(cust_id_credit=="")
+    {
+        alert("Empty Customer ID.");
+        window.location.href = window.location.pathname;
+        return false;
+    }
+    if(credit_amount==0 && credit_amount_trans==0)
+    {
+        alert("Empty Amount to be Credit.");
+        window.location.href = window.location.pathname;
+        return false;
+    }
+    $.ajax({
+        type:"POST",
+        url:"insert_credit_customer.php",
+        data:"custid_credit="+cust_id_credit+"&credit_amount="+credit_amount+"&credit_amount_trans="+credit_amount_trans+"&custid="+cust_id,
+        success:function(e)
+        {
+            alert(e);
+            $("#custid_credit").val("");
+            $("#amount_credit").val("");
+            ("#amount_credit_trans").val("");
+            $('#credit_modal').show(0).delay(200).hide(0);
+            setTimeout(function () { window.location.href = window.location.pathname;}, 200);
+
+        }
+        }); 
+    });
+	 
+});
+// <!--************************Insert Credits logic ***********************-->
+
+</script>
+	
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Reseller Panel</a>
+
+            </div>
+			<div class="collapse navbar-collapse" style="text-align:right;margin-top:15px;font-size:20px" id="bs-example-navbar-collapse-1">
+                        <div class="col-md-9">
+            <span style="color:white">Welcome: <i class="fa fa-user"></i> Peter</span>
+			</div>
+			<div class="col-md-1" style="margin-top:-8px;margin-bottom:8px">
+                <form method="post"><button id="logout" name="logout" style="width:100px;border-color:#337AB7;border-width:5px;border-radius:5px 5px 5px 5px;" type="submit" class="btn btn-default">Logout</button></form>
+                            </div>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>-->
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <h1 style="color:#337AB7"><b>Reseller</b></h1>
+                <div class="list-group">
+                    <!--<a href="index.php" class="list-group-item">Home</a>-->
+					<!-- <a href="dashboard.php" class="list-group-item"><i class="fa fa-dashboard" aria-hidden="true"></i>  &emsp;Dashboard</a> -->
+                   <a href="my_profile.php" class="list-group-item"><i class="fa fa-user" aria-hidden="true"></i>  &emsp;My Profile</a>
+                    <a href="dashboard.php" class="list-group-item"><i class="fa fa-indent" aria-hidden="true"></i>  &emsp;Dashboard</a>
+                    <a href="create_user.php" class="list-group-item"><i class="fa fa-pencil" aria-hidden="true"></i>  &emsp;Create User</a>
+                    <a href="update_user.php" class="list-group-item"><i class="fa fa-eraser" aria-hidden="true"></i>  &emsp;Update user</a>
+                  <a href="create_reseller.php" class="list-group-item"><i class="fa fa-pencil" aria-hidden="true"></i>  &emsp;Create Reseller</a>
+                    <a href="update_reseller.php" class="list-group-item"><i class="fa fa-eraser" aria-hidden="true"></i>  &emsp;Update Reseller</a>
+                    <a href="request_sender_id.php" class="list-group-item"><i class="fa fa-indent" aria-hidden="true"></i>  &emsp;Request Sender Id</a>
+                    <a href="request_template.php" class="list-group-item"><i class="fa fa-file-image-o" aria-hidden="true"></i>  &emsp;Template Approval</a>
+<a href="mis_report.php" class="list-group-item"><i class="fa fa-indent" aria-hidden="true"></i>  &emsp;MIS Reports</a>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#demo1" class="list-group-item active"><i class="fa fa-money" aria-hidden="true"></i>  &emsp;Credits Management <i class="fa fa-fw fa-caret-down"></i></a>
+                        <p id="demo1" class="collapse">
+                                <a class="list-group-item" href="credit_management_reseller.php"><i class="fa fa-chevron-right" aria-hidden="true"></i> My Credit History&emsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-history" aria-hidden="true"></i></a>
+                                <a class="list-group-item" href="credit_assignment_user.php"><i class="fa fa-chevron-right" aria-hidden="true"></i> Credit Assignment User&emsp;&nbsp; <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                <a class="list-group-item" href="credit_assignment_customer.php"><i class="fa fa-chevron-right" aria-hidden="true"></i> Credit Assignment Reseller&emsp;&nbsp; <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                <a class="list-group-item" href="credit_history_user.php"><i class="fa fa-chevron-right" aria-hidden="true"></i> User Credit History&emsp; <i class="fa fa-history" aria-hidden="true"></i></a>
+                            
+                        </p>
+                </div>
+            </div>
+			<!--Form Start-->
+
+		<!-- 	 -->
+
+			<!-- <div style="text-align:center;margin-top:20px;" class="col-md-7"><center style="margin-top:-15px;color:#337AB7;"><b>Total Recharge: 0 | Used Amount: 0 | My Available Balance:  | Total Users: 0</b></center></div> -->
+			
+			
+            <div class="col-md-9">&nbsp;</div>
+			
+<!--************************** Insert Credits Modal Start**************************-->
+<div class="modal fade" id="credit_modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header bg-primary" style='border-radius:5px 5px 0px 0px;'>
+          <input type="button" value="&times;" class="close" data-dismiss="modal">
+          <h4 class="modal-title">Insert Credits to Reseller</h4>
+        </div>
+        <div style="text-align:center" class="modal-body">
+		<div class="col-md-2"><input type="hidden" id="hid_var" value="smsairworks"></div>
+		<div class="col-md-8">
+             <div style="text-align:left" class="form-group">
+                <label>Reseller Id</label>
+                <input type="text" id="custid_credit" name="custid_credit" style="overflow-x:hidden;overflow-y:scroll" class="form-control" list="datalist_user3" placeholder="Type User Id here" autocomplete="off">
+            <datalist id="datalist_user3">
+                <option value='CEECOM'>CEECOM</option><option value='Wanjirunjuguna'>Wanjirunjuguna</option><option value='KENUSA'>KENUSA</option><option value='Blessed'>Blessed</option><option value='MASIVEAIRWORKS'>MASIVEAIRWORKS</option><option value='KASSMATT'>KASSMATT</option>                </datalist>
+            <span class="help-block" style="text-align:center">Note: If any Reseller id missing please check their status.</span>
+            </div>
+		<!-- 	<div style="text-align:left" class="form-group">
+			<label>Amount to be Credit</label>
+			<input id="amount_credit" name="amount_credit" onkeypress='text_validate(event)' placeholder="Insert amount to Credit" style="overflow-x:hidden;overflow-y:scroll" class="form-control">
+			</div> -->
+                            <div style="text-align:left" class="form-group">
+            <label>Amount to be Credit Non Premimum</label>
+            <input id="amount_credit" name="amount_credit" onkeypress='text_validate(event)' placeholder="Insert amount to Credit" style="overflow-x:hidden;overflow-y:scroll" class="form-control">
+            </div>
+             <div style="text-align:left" class="form-group">
+            <label>Amount to be Credit Premimum</label>
+            <input id="amount_credit_trans" name="amount_credit_trans" onkeypress='text_validate(event)' placeholder="Insert amount to Credit" style="overflow-x:hidden;overflow-y:scroll" class="form-control">
+            </div>
+              
+			</div>
+			<div class="col-md-2"></div>
+			<div class="form-group">
+ 
+	<a id="credit_btn" name="credit_btn" style="width:20%" type="button" class="btn btn-primary"><span class="text-lg">Submit</span></a>
+			<button style="width:20%;margin-left:20px" type="submit" onclick="refresh();" class="btn btn-primary" data-dismiss="modal"><span class="text-lg">Cancel</span></button>
+ </div>
+        </div>
+        <!--<div class="modal-footer">
+         
+        </div>-->
+      </div>
+      
+    </div>
+  </div>
+  <!--************************** Insert Credits Modal END**************************-->
+  <!--************************** Revoke Credits Modal Start**************************-->
+  
+  <div class="modal fade" id="revoke_modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header bg-primary" style='border-radius:5px 5px 0px 0px;'>
+          <input type="button" value="&times;" class="close" data-dismiss="modal">
+          <h4 class="modal-title">Revoke Credits from Reseller</h4>
+        </div>
+        <div style="text-align:center" class="modal-body">
+		<div class="col-md-2"><input type="hidden" id="hid_var2" value="smsairworks"></div>
+		<div class="col-md-8">
+          <div style="text-align:left" class="form-group">
+			<label>Customer Id</label>
+                <input type="text" id="custid_revoke" name="custid_revoke" style="overflow-x:hidden;overflow-y:scroll" class="form-control" list="datalist_user3" placeholder="Type User Id here" autocomplete="off">
+            <datalist id="datalist_user3">
+                <option value='CEECOM'>CEECOM</option><option value='Wanjirunjuguna'>Wanjirunjuguna</option><option value='KENUSA'>KENUSA</option><option value='Blessed'>Blessed</option><option value='MASIVEAIRWORKS'>MASIVEAIRWORKS</option><option value='KASSMATT'>KASSMATT</option>                </datalist>
+			</div>
+			<!-- <div style="text-align:left" class="form-group">
+			<label>Amount to Revoke</label>
+			<input id="amount_revoke" name="amount_revoke" placeholder="Insert amount to Revoke" style="overflow-x:hidden;overflow-y:scroll" class="form-control" onkeypress='text_validate(event)'>
+			</div> -->
+                                        <div style="text-align:left" class="form-group">
+                <label>Amount to Revoke Non Premimum</label>
+                <input id="amount_revoke" name="amount_revoke" placeholder="Insert amount to Revoke" style="overflow-x:hidden;overflow-y:scroll" class="form-control" onkeypress='text_validate(event)'>
+                </div>
+                 <div style="text-align:left" class="form-group">
+                <label>Amount to Revoke Premimum</label>
+                <input id="amount_revoke_trans" name="amount_revoke_trans" placeholder="Insert amount to Revoke" style="overflow-x:hidden;overflow-y:scroll" class="form-control" onkeypress='text_validate(event)'>
+                </div>
+                  
+			</div>
+			<div class="col-md-2"></div>
+			<div class="col-md-12"><span id="revoke_done"></span></div>
+			
+			<div class="form-group">
+ 
+<button id="revoke_btn" name="revoke_btn" style="width:20%" type="button" class="btn btn-primary"><span class="text-lg">Submit</span></button>
+			<button style="width:20%;margin-left:20px" type="submit" onclick="refresh();" class="btn btn-primary" data-dismiss="modal"><span class="text-lg">Cancel</span></button>
+ </div>
+        </div>
+
+        <!--<div class="modal-footer">
+         
+        </div>-->
+      </div>
+      
+    </div>
+  </div>
+<!--************************** Revoke Credits Modal END**************************-->
+
+			<div class="col-md-4">
+			<div style="text-align:right" class="form-group">
+			<button style="width:60%" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#credit_modal"><span class="text-lg">Add Credits</span></button>
+			</div>
+			</div>
+			<div class="col-md-4">
+			<div style="text-align:left" class="form-group">
+			<button style="width:60%" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#revoke_modal"><span class="text-lg">Revoke Credits</span></button>
+			</div>
+			</div>
+			<div class="col-md-3">
+				<h3>Reseller Credits Detail</h3>
+			</div>
+		
+		<!--********************** Form Start ************************-->
+
+            <form method="post">
+            <div class="col-md-3">
+            <div class="form-group">
+                <label>Reseller Id</label>
+                <input type="text" id="customerid" name="customerid" style="overflow-x:hidden;overflow-y:scroll" class="form-control" list="datalist_user3" placeholder="Type Reseller Id here" autocomplete="off">
+            <datalist id="datalist_user3">
+                <option value='CEECOM'>CEECOM</option><option value='Wanjirunjuguna'>Wanjirunjuguna</option><option value='KENUSA'>KENUSA</option><option value='Blessed'>Blessed</option><option value='MASIVEAIRWORKS'>MASIVEAIRWORKS</option><option value='KASSMATT'>KASSMATT</option>                </datalist>
+            </div>
+            </div>
+            <div class="col-md-2" style="text-align:left">
+            <div class="form-group">
+            
+            
+                        <label class="col-md-12">&nbsp;</label>
+            <button id="user_search" name="user_search" style="width:80%" type="submit" class="btn btn-primary"><span class="text-lg">S e a r c h</span></button>
+            </div>
+            </div>
+ <div class="col-md-9">
+                <div class="table-header">
+                <table width="98.5%" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                <th width='20%'>Customer Id</th>
+                <th width='10%'>Licenses</th>
+           <!--      <th width='14%'>Credits Assigned Promo.</th>
+                <th width='10%'>Credits Used Promo.</th> -->
+                                 <th width='14%'>Credits Available Non Premimum</th>
+                <th width='14%'>Credits Available Premimum</th>
+                      
+                <th width='18%'>Expired On</th>
+                <th>Expired In</th>
+                </tr>
+                </thead>
+                </table>
+                </div>
+                <div class="table-body" style="width:100%">
+                <table width="100%" class="table table-bordered table-hover">
+                <tbody style="width:100%">
+                <tr><td width='20.3%'>Blessed</td><td width='10.2%'>100</td><td width='14.2%'>0</td><td width='14.3%'>25</td><td width='18.3%'>31-07-2025 00:00:00</td><td>467 <span style='color:green'>Days</td></tr><tr><td width='20.3%'>CEECOM</td><td width='10.2%'>100</td><td width='14.2%'>0</td><td width='14.3%'>0</td><td width='18.3%'>09-09-2022 00:00:00</td><td><span style='color:red'>Expired</span></td></tr><tr><td width='20.3%'>KASSMATT</td><td width='10.2%'>1</td><td width='14.2%'>0</td><td width='14.3%'>0</td><td width='18.3%'>30-12-2021 00:00:00</td><td><span style='color:red'>Expired</span></td></tr><tr><td width='20.3%'>KENUSA</td><td width='10.2%'>100</td><td width='14.2%'>0</td><td width='14.3%'>0</td><td width='18.3%'>31-12-2023 00:00:00</td><td><span style='color:red'>Expired</span></td></tr><tr><td width='20.3%'>MASIVEAIRWORKS</td><td width='10.2%'>1234567</td><td width='14.2%'>0</td><td width='14.3%'>6</td><td width='18.3%'>31-12-2023 00:00:00</td><td><span style='color:red'>Expired</span></td></tr><tr><td width='20.3%'>Wanjirunjuguna</td><td width='10.2%'>100</td><td width='14.2%'>0</td><td width='14.3%'>0</td><td width='18.3%'>31-12-2023 00:00:00</td><td><span style='color:red'>Expired</span></td></tr>                </tbody>
+                </table>
+            </form>
+
+			
+            </div>
+<!--************************CSV DOwnload*******************************-->
+        <!--    <div class="col-md-1">
+			<form method="post" action="csv_download.php">
+			<input type="hidden" name="csv_query" value="select cust_master.cust_id,cust_master.licenses,cust_master.credits_assigned as cr_available,cust_master.credits_assigned_trans as cr_available_trans,cust_master.expired_on,DATEDIFF(cust_master.expired_on, CURDATE()) AS days_left,sum(user_master.credits_assigned) as cr_used from cust_master left join user_master on user_master.cust_id=cust_master.cust_id where cust_master.parent_id='smsairworks' group by cust_master.cust_id">
+			<div style="text-align:center" class="form-group">
+				<button type="submit" value="DOWNLOAD CSV" name="download_User_credits_detail_csv" style="background:none;border:none;height:40px;width:40px"><img style="width:35px;height:35px" src="image/excel-logo.png"/></button>
+				<span class="help-block" style="text-align:center;font-size:10px">Click To Download CSV.</span>
+			</div>
+			</form>
+			</div> -->
+<!--************************CSV DOwnload*******************************-->	
+			</div>
+			<!--Form End-->
+
+						
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+				<!--Insert Footer Here-->
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+{% load static %}
+<!-- HA modified -->
+<!DOCTYPE html>
+<html lang="en">
+    {% if user %}
+    {% if row %}
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PESHEYSMS - Sender id Invoice #{{row.id}}</title>
+
+    <link href="{% static 'templates/six/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'templates/six/css/invoice.css' %}" rel="stylesheet">
+    <script src="{% static 'templates/six/js/scripts.min.js' %}"></script>
+
+</head>
+<body>
+<!-- OSVA add for Payfast -->
+<script>
+    $( document ).ready(function() {
+        var results = new RegExp('[\?&]error=([^&#]*)').exec(window.location.href);
+        if (results) {
+            $('.alert-danger').show();
+        }
+    });
+</script>
+<!-- OSVA add for Payfast -->
+
+    <p class="text-center hidden-print" style="padding-top: 12px;color: #4e73df;"><a href="{% url 'senderid' %}">&laquo; Back to Client Area</a></a></p>
+
+    <div class="container-fluid invoice-container">
+
+        
+            <div class="row invoice-header">
+                <div class="invoice-col">
+
+                                            <p><img style="width: 60px;" src="{% static 'img/peshey.png' %}" title="HOSTAFRICA" /></p>
+                                        
+                                            <h3>Proforma Invoice #{{row.id}}</h3>
+                    
+                </div>
+                <div class="invoice-col text-center">
+                    <div class="invoice-status">
+                        {% if row.status != "Pending" %}
+                            <span class="paid">Paid</span>
+                        {% else %}
+                            <a href="#" style="color: white; background: #4e73df;" class="btn btn-primary unpaid">Pay Now</a>
+                        {% endif %}
+                    </div>
+                    
+
+                    
+                </div>
+            </div>
+
+            <!-- OSVA add for Payfast -->
+            <div class="alert alert-danger" role="alert" hidden>
+                <p>Oops! something went wrong. </p>
+                <p>Please check your card details and ensure there are funds available in the account.
+                    If the card details are correct and you have funds available, please contact Support.</p>
+            </div>
+            <!-- OSVA add for Payfast -->
+
+            <hr>
+
+            
+            <div class="row">
+                <div class="invoice-col right">
+                    <strong>Pay To</strong>
+                    <address class="small-text">
+                        Peshey<small>(Trading as peshey ltd)</small><br />
+-----------------------------<br />
+Mpesa Paybill 890500. Account [Proforma Invoice Number]<br />
+-----------------------------<br />
+
+                                            </address>
+                </div>
+                <div class="invoice-col">
+                    <strong>Invoiced To</strong>
+                    <address class="small-text">
+                        {{row.senderid}}<br />                        {{user.firstname}} {{user.lastname}}<br />
+
+                        Kenya
+                                                                    </address>
+                </div>
+            </div>
+
+            <div class="row hidden-print">
+                <div class="invoice-col right">
+                    <strong>Payment Method</strong><br>
+                    <span class="small-text" data-role="paymethod-info">
+                                                    Mpesa                                            </span>
+                    <br /><br />
+                </div>
+                <div class="invoice-col">
+                    <strong>Invoice Date</strong><br>
+                    <span class="small-text">
+                        Friday, December 9th, 2022<br><br>
+                    </span>
+                </div>
+            </div>
+
+            <br />
+
+            
+            
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Invoice Items</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <td><strong>Description</strong></td>
+                                    <td width="20%" class="text-center"><strong>Amount</strong></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                    <tr>
+                                        <td>Sender Id application fee for {{row.senderid}} *</td>
+                                        <td class="text-center">KSh 8500.00</td>
+                                    </tr>
+                                                                        <tr>
+                                    <td class="total-row text-right"><strong>Sub Total</strong></td>
+                                    <td class="total-row text-center">KSh 8,500.00</td>
+                                </tr>
+                                                                    <tr>
+                                        <td class="total-row text-right"><strong>0.00% Tax Due</strong></td>
+                                        <td class="total-row text-center">KSh 0.00</td>
+                                    </tr>
+                                                                                                <tr>
+                                    <td class="total-row text-right"><strong>Credit</strong></td>
+                                    <td class="total-row text-center">KSh 0.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="total-row text-right"><strong>Total</strong></td>
+                                    <td class="total-row text-center">KSh 8,500.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+                            <p>* Indicates a taxed item.</p>
+            
+            <div class="transactions-container small-text">
+                <div class="table-responsive">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <td class="text-center"><strong>Transaction Date</strong></td>
+                                <td class="text-center"><strong>Gateway</strong></td>
+                                <td class="text-center"><strong>Transaction ID</strong></td>
+                                <td class="text-center"><strong>Amount</strong></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                            <tr>
+                                    <!-- <td class="text-center">Friday, December 9th, 2022</td>
+                                    <td class="text-center">Mpesa</td>
+                                    <td class="text-center">QL93RA6G81</td>
+                                    <td class="text-center">KSh 8,500.00</td> -->
+                                </tr>
+                                                        <tr>
+                                <td class="text-right" colspan="3"><strong>Balance</strong></td>
+                                <td class="text-center">KSh 0.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="hidden-print">
+                
+                <p>In case you need to reach out to allocate a payment please contact <a href="mailto:peshey001@gmail.com">peshey001@gmail.com</a></p>
+            </div>
+
+
+            <div class="pull-right btn-group btn-group-sm hidden-print">
+                <a href="javascript:window.print()" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+                <a href="#" class="btn btn-default"><i class="fas fa-download"></i> Download</a>
+            </div>
+
+        
+    </div>
+
+    <p class="text-center hidden-print" style="padding-bottom: 12px;color: #4e73df;"><a href="{% url 'senderid' %}">&laquo; Back to Client Area</a></a></p>
+
+ {% endif %}
+ {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,747 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SMS</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'index' %}">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">SMS <sup></sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+           
+
+            <!-- Nav Item - Pages Collapse Menu -->
+           
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+          
+
+           
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Addons
+            </div>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'sendsms' %}">
+                    <i class="fas fa-comment"></i>
+                    <span>Send SMS</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'smspersonalised' %}">
+                    <i class="fas fa-comment"></i>
+                    <span>Send SMS personalised</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'pay' %}">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span> Payment</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'smsstatus'%}">
+                    <i class="fas fa-comment"></i>
+                    <span>SMS Status</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'misreport'%}">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>MIS Report</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'ussd/' %}">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>USSD Report</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Control Panel</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Control Panel</h6>
+                        <a class="collapse-item" href="{% url 'senderid' %}">Sender Id</a>
+                        <a class="collapse-item" href="{% url 'templates' %}">Templates</a>
+                        <a class="collapse-item" href="{% url 'settings' %}">settings</a>
+                        <a class="collapse-item" href="{% url 'failapi' %}">Fail API Requests</a>
+                        
+                    </div>
+                </div>
+            </li>
+            <hr class="sidebar-divider">
+
+
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Contact Book</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">contact settings:</h6>
+                        <a class="collapse-item" href="{% url 'creategroup' %}">Create Group</a>
+                        <a class="collapse-item" href="{% url 'managegroup' %}">Manage Group</a>
+                        <a class="collapse-item" href="{% url 'getcontacts' %}">Get contacts</a>
+                        
+                    </div>
+                </div>
+            </li>
+            <hr class="sidebar-divider">
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost/whatsappdocs/docs/index.html" target="_blank">
+                    <i class="fas fa-code"></i>
+                    <span>API Docs</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span></a>
+            </li>
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                   <i class="fas fa-headphones"></i>
+                    <span style="padding-left: 10px;" class="d-none d-md-block d-lg-block">0712982944</span>
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <li><br>
+                            <a href="{% url 'pay' %}"><div class="text-primary" style="margin-top: -1px;padding-right: 6px;font-size: 13px;">Top up</div></a>
+                        </li>
+                        <li><br>
+                            <div class="smscount">
+                                <div class="text-primary" style="opacity: 1;">0 messages</div>
+                            </div>
+                        </li>
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <style>
+                            .smscount{
+                                min-width: 80px;
+                                width: fit-content;
+                                height: 40px;
+                                background-color: #f8f9fc;
+                                opacity: 1;
+                                border-radius:6px;
+                                margin-top: -10px;
+                                justify-content: center;
+                                align-items: center;
+                                display: flex;
+                                font-size: 12px;
+                                padding-left: 6px;
+                                padding-right: 6px;
+                                }
+                        </style>
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                        <style>
+                            .form-group{
+                                width: 100%;
+                                display: flex;
+                            }
+                        </style>
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            aria-labelledby="alertsDropdown">
+                            <h6 class="dropdown-header">
+                                Alerts Center
+                            </h6>
+                            <div id="notificationsDropdownMenu">
+                                
+                            </div>
+                            <!-- Notifications will be added dynamically here -->
+                            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                        </div>
+
+                        </li>
+                        
+                        <script>
+                            // Function to fetch notifications from the backend
+                            async function fetchNotifications() {
+                                try {
+                                    const response = await fetch('/getnotifications', {
+                                        method: 'GET',
+                                        headers: {
+                                            'Content-Type': 'application/json',
+                                            // You may need to include additional headers if required
+                                        },
+                                    });
+                                    if (!response.ok) {
+                                        throw new Error('Network response was not ok');
+                                    }
+                                    const data = await response.json(); // Parse JSON response
+                                    return data.notifications; // Assuming notifications is an array in the JSON response
+                                } catch (error) {
+                                    console.error('There was a problem with the fetch operation:', error);
+                                    return []; // Return an empty array if there's an error
+                                }
+                            }
+                        
+                            // Function to display notifications
+                            function displayNotifications(notifications) {
+                                // Assuming you have a div with id "notificationsDropdownMenu" to display notifications
+                                const notificationsDropdownMenu = document.getElementById('notificationsDropdownMenu');
+                                // notificationsDropdownMenu.innerHTML = ''; // Clear previous notifications
+                                notifications.forEach(notification => {
+                                    // Create a new notification item
+                                    const time = new Date(notification.time);
+                                    const formattedTime = `${months[time.getMonth()]} ${time.getDate()}, ${time.getFullYear()}`;
+
+                                    const notificationItem = document.createElement('a');
+                                    notificationItem.classList.add('dropdown-item', 'd-flex', 'align-items-center');
+                                    notificationItem.href = '#';
+                        
+                                    // Add notification content
+                                    notificationItem.innerHTML = `
+                                        <div class="mr-3">
+                                            ${notification.picture}
+                                        </div>
+                                        <div>
+                                            <div class="small text-gray-500">${formattedTime}</div>
+                                            ${notification.notification}
+                                        </div>
+                                    `;
+                        
+                                    // Append the notification item to the notifications dropdown menu
+                                    notificationsDropdownMenu.appendChild(notificationItem);
+                                });
+                            }
+                        
+                            // Function to handle fetching and displaying notifications
+                            async function handleNotifications() {
+                                try {
+                                    const notifications = await fetchNotifications();
+                                    displayNotifications(notifications);
+                                } catch (error) {
+                                    console.error('Error fetching and displaying notifications:', error);
+                                }
+                            }
+                        
+                            // Call handleNotifications function when the page loads
+                            window.addEventListener('DOMContentLoaded', () => {
+                                handleNotifications();
+                            });
+
+                            const months = [
+                                'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+                            ];
+                        </script>
+
+                       
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    {% if user %}
+                                    {{ user.firstname }} {{ user.lastname }}
+                                {% endif %}
+                                </span>
+                                <img class="img-profile rounded-circle"
+                                    src="{% static 'img/undraw_profile.svg' %}">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="{% url 'settings' %}">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="{% url 'settings' %}">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+                <style>
+                    .togglebtn {
+                        display: flex;
+                        width: 250px;
+                        height: 35px;
+                        justify-content: center;
+                        align-items: center;
+                        border: 0.4px solid gray;
+                        margin-top: 40px;
+                    }
+                    .profilesettings {
+                        width: 50%;
+                        height: 100%;
+                        font-size: 13px;
+                        border: none;
+                        background: #4e73df;
+                        color: #fff;
+                    }
+
+                    #cancelBtn {
+                        width: 50%;
+                        height: 100%;
+                        font-size: 13px;
+                        border: none;
+                        background: gray;
+                        color: #fff;
+                    }
+                    
+
+                    #sendBtn {
+                        width: 50%;
+                        height: 100%;
+                        font-size: 13px;
+                        border: none;
+                        background: #4e73df;
+                        color: #fff;
+                        opacity: 0.8;
+                    }
+                    #sendBtn:hover{
+                        opacity: 1;
+                    }
+                    .passtoggle {
+                        width: 50%;
+                        height: 100%;
+                        font-size: 13px;
+                        border: none;
+                        background: transparent;
+                    }
+                    .paymentselect{
+                        width: 90%;
+                        height: 50px;
+                        padding: 4px, 8px;
+                        justify-content: start;
+                        align-items: center;
+                        display: flex;
+                        border-radius: 6px;
+                        padding-left: 40px;
+                        cursor: pointer;
+                    }
+                    .paymentselect:hover{
+                        background: rgb(249 250 251);
+                    }
+                    .paymentselect.active{
+                        width: 90%;
+                        height: 50px;
+                        background: rgb(249 250 251);
+                        padding: 4px, 8px;
+                        justify-content: start;
+                        align-items: center;
+                        display: flex;
+                        border-radius: 6px;
+                        padding-left: 40px;
+                        cursor: pointer;
+                        color: #000;
+                    }
+                    input{
+                        width: 70%;
+                        outline: none;
+                        border: 1px solid #e3e5eb;
+                        height: 35px;
+
+                    }
+                    .txt{
+                        color: #000;
+                        font-size: 14px;
+                        padding-top: 10px;
+                    }
+                    .topbartable{
+                        width: 100%;
+                        height: 40px;
+                        justify-content: end;
+                        padding-right: 20px;
+                        display: flex;
+                        align-items: center;
+                        margin-top: 20px;
+                    }
+                    </style>
+                <!-- Begin Page Content -->
+                
+                <div class="container-fluid custom-container">
+                    <div class="togglebtn">
+                        <button id="profileBtn" onclick="toggleContactListAndSingleNum();" class="profilesettings">Single number</button>
+                        <button id="passBtn" onclick="toggleSingleNumAndContactList();" class="passtoggle">Multiple numbers</button>
+                    </div>
+                    <!-- Page Heading -->
+              
+
+
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4 ">
+                        
+                        <div class="card-body">
+                         
+                            <div class="h-6" style="color: #000;font-weight: bold;">Compose & Send your message.</div><br>
+                            <div style="font-size: 11px;">Compose a message & schedule the time you want it to be sent in this step.</div>
+                           <br> <div id="multiplebuttondiv" class="row">
+                                <button id="conlisteBtn" onclick="conlisttoggle();" class="profilesettings" style="height: 34px;width: 200px;margin-left: 10px;font-size: 12px;">Select from contact group </button>
+        <span style="padding-left: 8px;">or</span>
+        <button id="confileBtn" class="canceleBtn" onclick="fileuploadtoggle();" style="height: 34px;width: 200px;margin-left: 10px;font-size: 12px;">Upload contact file</button>
+        
+                                </div>
+                            <div id="singlenumdiv" >
+                                <hr>
+                            <label for="phone_numbers" style="color: #000;font-size: 13px;">Enter single numbers only</label>
+                            <textarea class="form-control notes" name="phone_numbers" placeholder="Enter number" id="mobile_numbers" style="resize:none;" data-toggle="popover" data-trigger="hover focus" data-placement="top" data-content="Enter Single number Only" rows="2"></textarea>
+                        </div>
+<div id="contactlistdiv">
+
+                       
+                        <hr>
+                        <div id="contactgroupdiv">
+                        <label for="phone_numbers" style="color: #000;font-size: 13px;">Select the contact group</label>
+
+                        <select placeholder="Contact Group" style="font-size: 14px;" class="form-control input-md __web-inspector-hide-shortcut__" name="contact_group" id="contact_group">
+                            <option value="" disabled="" selected="" hidden="">--Select Contact Group--</option>
+                                </select>
+                    </div>
+                    <div id="fileuploaddiv">
+                        <label for="phone_numbers" style="color: #000;font-size: 13px;">Upload contacts file(CSV)</label><br>
+                        <input type="file">
+                        <!-- <button id="profileBtn" class="profilesettings" style="height: 34px;width: 200px;margin-left: 10px;font-size: 12px;">Select from contact list </button> -->
+                    <br>
+                    </div>
+                </div>
+                            <label for="message_text" style="color: #000;font-size: 13px;">Enter your message</label>
+                   
+                            <textarea class="notes form-control" name="message_text" placeholder="Please Enter Your Message" id="message_box" style="resize:none;" data-toggle="popover" data-trigger="hover focus" data-placement="top" data-content="One SMS consists of 145 Character" rows="4" onkeyup="countChar(this)"></textarea>
+                           <br> <div style="font-size: 12px;">This message contains the following additional characters for Safaricom recipients: <strong>STOP*456*9*5#</strong></div>
+                            <div style="font-size: 12px;">~21 characters. 1 message(s) . GSM 7 Encoding</div>
+                            <label for="message_text" style="color: #000;font-size: 13px;">Schedule the message</label>
+                            <br> <div style="font-size: 12px;">Select the time you want this message to be sent</div>
+                        
+                        <div class="row" style="margin-left: 3px;">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="selectOption" id="csvUploadRadio" value="csvUpload" onclick="toggleDateTimeInput(false)">
+                                <label class="form-check-label" for="csvUploadRadio" style="font-size: 14px;">Now</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="selectOption" id="csvUploadRadio" value="csvUpload" onclick="toggleDateTimeInput(true)">
+                                <label class="form-check-label" for="csvUploadRadio" style="font-size: 14px;">Later</label>
+                            </div>
+                        </div>
+                        
+                        <div id="dateTimeInputContainer" style="display: none;">
+                            <input type="datetime-local" class="form-control notes" name="time" id="dateTimeInput" style="resize: none;" data-toggle="popover" data-trigger="hover focus" data-placement="top" data-content="Select date and time">
+                        </div>
+                        
+                        <script>
+                            function toggleDateTimeInput(show) {
+                                var dateTimeInputContainer = document.getElementById("dateTimeInputContainer");
+                                if (show) {
+                                    dateTimeInputContainer.style.display = "block";
+                                } else {
+                                    dateTimeInputContainer.style.display = "none";
+                                }
+                            }
+                        </script>
+
+
+                        <label for="message_text" style="color: #000;font-size: 13px;">Select sender id</label>
+                        <div class="row" style="margin-left: 3px;">
+                        <select placeholder="Sender ID"  style="font-size: 14px;max-width: 300px;" class="form-control input-md" name="sender_id" id="sender_id">
+                            <option value="" disabled="" selected="" hidden="">--Select Sender ID--</option>
+                        </select>
+                        <button id="profileBtn" class="profilesettings" style="height: 34px;width: 100px;margin-left: 10px;">Promotional</button>
+                        </div><br>
+                        
+                        <div class="row" style=" font-size: 13px;">
+                            <div class="col-auto" style="height: 20px; font-size: 19px;">
+                                <input style="width: 15px;" type="checkbox" name="" id="">
+                            </div>
+                            <div class="col">I certify that this message abides by anti-spamming rules, restrictions on political messaging as well as international and local law and regulations. I have accepted the terms of use that govern the use of PesheySMS™.</div>
+                        </div>
+                        
+                        <br>
+                        <div class="row" style="width: 100%;justify-content: flex-end;">
+                        <button id="canceleBtn" class="canceleBtn" style="height: 34px;width: 100px;margin-left: 10px;">Cancel</button>
+                        <button id="sendBtn" class="sendBtn" style="height: 34px;width: 100px;margin-left: 10px;">Send <i class="fas fa-arrow-right"></i></button>
+
+                        </div>
+                        <script>
+      
+    
+      var singlenumdiv = document.getElementById("singlenumdiv");
+    var contactgroupdiv = document.getElementById("contactgroupdiv");
+    var contactlistdiv = document.getElementById("contactlistdiv");
+    var fileuploaddiv = document.getElementById("fileuploaddiv");
+    var passBtn = document.getElementById("passBtn");
+    var multiplebuttondiv = document.getElementById("multiplebuttondiv");
+    var profileBtn = document.getElementById("profileBtn");
+    var conlisteBtn = document.getElementById("conlisteBtn");
+    var confileBtn = document.getElementById("confileBtn");
+    // Set initial display
+    singlenumdiv.style.display = 'block';
+    contactgroupdiv.style.display = 'none';
+    contactlistdiv.style.display = 'none';
+    fileuploaddiv.style.display = 'none';
+    multiplebuttondiv.style.display = 'none';
+    confileBtn.style.border = "none";
+
+                             // Function to toggle display of singlenumdiv and contactlistdiv
+    function toggleSingleNumAndContactList() {
+        passBtn.style.background = "#4e73df";
+        passBtn.style.color = "#fff";
+        profileBtn.style.background = "#f4f4f4";
+        profileBtn.style.color = "#000";
+        singlenumdiv.style.display = 'none';
+        contactlistdiv.style.display = 'block';
+        contactgroupdiv.style.display = 'block';
+        fileuploaddiv.style.display = 'none';
+    multiplebuttondiv.style.display = 'block';
+    conlisteBtn.style.background = "#4e73df";
+        conlisteBtn.style.color = "#fff";
+        confileBtn.style.background = "#f4f4f4";
+       confileBtn.style.color = "#000";
+    }
+        function toggleContactListAndSingleNum(){
+            profileBtn.style.background = "#4e73df";
+            profileBtn.style.color = "#fff";
+            passBtn.style.background = "#f4f4f4";
+        passBtn.style.color = "#000";
+            singlenumdiv.style.display = 'block';
+        contactlistdiv.style.display = 'none';
+        contactgroupdiv.style.display = 'none';
+        fileuploaddiv.style.display = 'none';
+    multiplebuttondiv.style.display = 'none';
+
+        }
+
+
+
+        function conlisttoggle() {
+            conlisteBtn.style.background = "#4e73df";
+        conlisteBtn.style.color = "#fff";
+        confileBtn.style.background = "#f4f4f4";
+       confileBtn.style.color = "#000";
+       contactgroupdiv.style.display = "block"
+       fileuploaddiv.style.display = "none"
+    }
+
+
+    function fileuploadtoggle() {
+            conlisteBtn.style.background = "#f4f4f4";
+        conlisteBtn.style.color = "#000";
+        confileBtn.style.background = "#4e73df";
+       confileBtn.style.color = "#fff";
+       confileBtn.style.border = "none";
+       contactgroupdiv.style.display = "none"
+       fileuploaddiv.style.display = "block"
+
+    }
+                        </script>
+
+
+
+
+
+                        </div>
+                            <!-- ANALTIO IS HERE -->
+                            <!--// ANALTIO IS HERE -->
+                            
+                            </div>
+
+
+
+                            <style>
+                                /* Custom CSS */
+@media (min-width: 992px) {
+    .custom-container {
+        max-width: 820px; /* Adjust the width as needed */
+    }
+}
+
+                            </style>
+
+
+
+
+                        
+
+
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="{% url 'login' %}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <!-- Bootstrap core JavaScript-->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    
+    <!-- Core plugin JavaScript-->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+    
+    <!-- Custom scripts for all pages-->
+    <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,475 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <title> User Login</title>
+
+ <!-- Meta -->
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
+ <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+ <link rel="shortcut icon" href="favicon.ico">
+
+ <!-- FontAwesome JS-->
+ <script defer src="assets/plugins/fontawesome/js/all.min.js"></script>
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <!-- App CSS -->
+ <link id="theme-style" rel="stylesheet" href="{% static 'css/portal.css' %}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <!-- Custom CSS -->
+    <link href="{% static 'css/css/shop-homepage.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/css/shop-homepage.css' %}" rel="stylesheet">
+    <link href="{% static 'css/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+
+<body class="app app-login p-0">
+
+
+
+
+
+<header class="app-header fixed-top">
+    <div class="app-header-inner">
+     <div class="container-fluid py-2">
+      <div class="app-header-content">
+       <div class="row justify-content-end align-items-center">
+   
+        <div class="col-auto">
+         <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none" href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img">
+           <title>Menu</title>
+           <path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path>
+          </svg>
+         </a>
+        </div>
+        <!--//col-->
+   
+   
+        <div class="app-utilities col-auto">
+         <!--//app-utility-item-->
+         <!--//app-utility-item-->
+   
+         <div class="app-utility-item app-user-dropdown dropdown">
+          <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Hi Admin <img src="{% static 'img/undraw_profile.svg' %}" alt="user profile"></a>
+          <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
+   
+           <li>
+            <hr class="dropdown-divider">
+           </li>
+           <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
+          </ul>
+         </div>
+         <!--//app-user-dropdown-->
+        </div>
+        <!--//app-utilities-->
+       </div>
+       <!--//row-->
+      </div>
+      <!--//app-header-content-->
+     </div>
+     <!--//container-fluid-->
+    </div>
+    <!--//app-header-inner-->
+    <div id="app-sidepanel" class="app-sidepanel">
+     <div id="sidepanel-drop" class="sidepanel-drop"></div>
+     <div class="sidepanel-inner d-flex flex-column">
+      <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
+      <div class="app-branding">
+       <a class="app-logo" href="{% url 'admin/mydashboard' %}"><img class="logo-icon me-2" src="{% static 'img/peshey.png' %}" alt="logo">
+        <!--<span class="logo-text">REGISTER</span>-->
+       </a>
+   
+      </div>
+      <!--//app-branding-->
+   
+      <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
+       <ul class="app-menu list-unstyled accordion" id="menu-accordion">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/mydashboard' %}">
+             <span class="nav-icon">
+              <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer" viewBox="0 0 16 16">
+               <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2zM3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z" />
+               <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z" />
+              </svg>
+             </span>
+             <span class="nav-link-text">Dashboard</span>
+            </a>
+           </li>
+
+
+        <li class="nav-item active">
+            <a class="nav-link active" href="{% url 'admin/myprofile' %}">
+             <span class="nav-icon">
+              <i class="fas fa-user"></i>
+             </span>
+             <span class="nav-link-text">Profile</span>
+            </a>
+           </li>
+           
+          
+
+           
+
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/createusers' %}">
+             <span class="nav-icon">
+              <i class="fas fa-pen"></i>
+             </span>
+             <span class="nav-link-text">Create user</span>
+            </a>
+           </li>
+
+
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/updateusers' %}">
+             <span class="nav-icon">
+              <i class="fas fa-pen"></i>
+             </span>
+             <span class="nav-link-text">Update user</span>
+            </a>
+           </li>
+
+
+           <li class="nav-item active">
+            <a class="nav-link" href="{% url 'admin/createresellers' %}">
+                <span class="nav-icon">
+                    <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                     <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                     <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" />
+                     <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+                    </svg>
+                   </span>
+             <span class="nav-link-text">Create reseller</span>
+            </a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/updateresellers' %}">
+             <span class="nav-icon">
+              <i class="fas fa-pen"></i>
+             </span>
+             <span class="nav-link-text">Update reseller</span>
+            </a>
+           </li>
+
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/senderids' %}">
+             <span class="nav-icon">
+                <i class="material-icons">folder_shared</i>
+             </span>
+             <span class="nav-link-text">Request sender id</span>
+            </a>
+           </li>
+
+
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/requesttemplates' %}">
+             <span class="nav-icon"> 
+                <i class="fas fa-splotch"></i>
+             </span>
+             <span class="nav-link-text">Template approval</span>
+            </a>
+           </li>
+
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/misreports' %}">
+             <span class="nav-icon">
+                <i class="fas fa-chalkboard"></i>
+             </span>
+             <span class="nav-link-text">MIS Reports</span>
+            </a>
+           </li>
+
+<hr>
+
+         <li class="nav-item has-submenu">
+          <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+          <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-1" aria-expanded="false" aria-controls="submenu-1">
+           <span class="nav-icon">
+            <i class="material-icons">kitchen</i>
+           </span>
+           <span class="nav-link-text">Credit management</span>
+           <span class="submenu-arrow">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+             <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+            </svg>
+           </span>
+           <!--//submenu-arrow-->
+          </a>
+          <!--//nav-link-->
+         
+         </li>
+      <hr>
+       
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'admin/creditshistory' %}">
+         <span class="nav-icon">
+          <i class="material-icons">schedule</i>
+         </span>
+         <span class="nav-link-text">My credit history</span>
+        </a>
+       </li>
+
+       <li class="nav-item">
+        <a class="nav-link" href="{% url 'admin/creditassingmentusers' %}">
+         <span class="nav-icon">
+            <i class="material-icons">loyalty</i>
+         </span>
+         <span class="nav-link-text">Credit assignment user</span>
+        </a>
+       </li>
+
+
+       <li class="nav-item ">
+        <a class="nav-link" href="{% url 'admin/creditassingmentreseller' %}">
+         <span class="nav-icon"> 
+            <i class="fas fa-splotch"></i>
+         </span>
+         <span class="nav-link-text">Credit assignment reseller</span>
+        </a>
+       </li>
+
+       <li class="nav-item">
+        <a class="nav-link" href="{% url 'admin/creditshistory' %}">
+         <span class="nav-icon">
+          <i class="material-icons">history</i>
+         </span>
+         <span class="nav-link-text">User credit history</span>
+        </a>
+       </li>
+
+
+
+
+        </nav>
+      <!--//app-nav-->
+      <div class="app-sidepanel-footer">
+       <nav class="app-nav app-nav-footer">
+        <ul class="app-menu footer-menu list-unstyled">
+   
+         <!--//nav-item-->
+         <li class="nav-item">
+          <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+          <a class="nav-link" href="{% url 'admin/logout' %}">
+           <span class="nav-icon">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-toggle-on" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+             <path fill-rule="evenodd" d="M12 1H4a1 1 0 0 0-1 1v10.755S4 11 8 11s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z" />
+             <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+            </svg>
+           </span>
+           <span class="nav-link-text">Logout</span>
+          </a>
+          <!--//nav-link-->
+         </li>
+         <!--//nav-item-->
+        </ul>
+        <!--//footer-menu-->
+       </nav>
+      </div>
+      <!--//app-sidepanel-footer-->
+   
+     </div>
+     <!--//sidepanel-inner-->
+    </div>
+    <!--//app-sidepanel-->
+   </header>
+   <!--//app-header-->
+
+
+
+   <div id="authwrapper" class="row g-0 app-auth-wrapper" style="background: transparent;">
+    <!-- <div class="col-12 col-md-7 col-lg-12 auth-main-col text-center p-5"> -->
+  
+    
+
+        <style>
+            @media (min-width: 800px) {
+                #tableid{
+        margin-left: 160px;
+    }
+}
+             @media (min-width: 1200px) {
+    #maindiv {
+      margin-left: 300px; /* Adjust the value as needed */
+    }
+    #container{
+        margin-left: 130px;
+    }
+    #authwrapper{
+        margin-left: 20px;
+    }
+    #tableid{
+        margin-left: 420px;
+    }
+  }
+  #maindiv{
+    overflow: visible;
+  }
+  #container{
+    overflow: visible;
+  }
+  #authwrapper{
+    overflow: visible;
+  }
+  .app{
+    background: #fff;
+  }
+.active
+{
+  color: #4e73df;
+}
+.nav-item .nav-link .active {
+        color: #4e73df; /* Change the color to your desired color */
+        /* Add any other styles you want for the active state */
+    }
+        </style>
+
+
+
+
+
+{% if user %}
+<h2>Account Information</h2>
+<div id="tableid" class="table-responsive col-lg-5 col-md-8 col-sm-10" style="overflow-x:auto;">
+    <table class="table table-bordered table-hover">
+        <tbody>
+                                        <tr>
+        <td><b>Customer Id</b></td>
+        <td>{{ user.username }}</td>
+        </tr>
+        <tr>
+        <td><b>Description</b></td>
+        <td>{{ user.description }}</td>
+        </tr>
+        <tr>
+        <td><b>Customer Name</b></td>
+        <td>{{ user.customername }}</td>
+        </tr>
+        <tr>
+        <td><b>Address</b></td>
+        <td>Kenya</td>
+        </tr>
+                                        <tr>
+        <td><b>Licenses</b></td>
+        <td>{{user.license}}</td>
+        </tr>
+                                        <tr>
+        <td><b>Credits Available USSD</b></td>
+        <td>{{user.creditsavailableussd}}</td>
+        </tr>
+        <tr>
+        <td><b>Credits Available Bulksms</b></td>
+        <td>{{user.creditsavailableussd}}</td>
+        </tr>
+             
+        <tr>
+        <td><b>Expired On</b></td>
+        <td>{{user.expiry}}</td>
+        </tr>
+        <tr>
+        <td><b>Email</b></td>
+        <td>{{user.email}}</td>
+        </tr>
+   
+        <tr>
+        <td><b>Priority</b></td>
+        <td>
+          {% if user.priority == "1" %}
+          High (max)
+        {% elif user.priority == "2" %}
+          High (min)
+        {% elif user.priority == "3" %}
+          Mid (max)
+        {% elif user.priority == "4" %}
+          Mid (min)
+        {% elif user.priority == "5" %}
+          Low (max)
+        {% elif user.priority == "6" %}
+          Low (min)
+        {% endif %}
+
+        </td>
+        </tr>
+        <!-- <td><b>Routing</b></td>
+        <td>Disable</td>
+        </tr> -->
+        <tr>
+        <td><b>Created On</b></td>
+        <td>{{ user.createdon }}</td>
+        </tr>
+        <td><b>Updated On</b></td>
+        <td></td>
+        </tr>
+        <tr>
+        <td><b>Sales Account Manager</b></td>
+        <td>{{ user.accountmanager }}</td>
+        </tr>
+        </tbody>
+    </table>
+    {% endif %}
+    </div>
+       
+
+
+  
+      
+    
+  
+    </div>
+   </div>
+  
+
+
+
+
+
+
+
+   <footer class="app-footer">
+    <div class="container text-center py-3">
+   
+     <small class="copyright"> All Rights reserved 2022</small>
+   
+    </div>
+   </footer>
+
+   <script src="{% static 'js/js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/js/bootstrap.min.js' %}"></script>
+   
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // Get all nav-link elements
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      // Add click event listener to each nav-link
+      navLinks.forEach(function(navLink) {
+          navLink.addEventListener('click', function(event) {
+              // Prevent the default behavior of the link
+              // event.preventDefault();
+              
+              // Remove the active class from all nav-links
+              navLinks.forEach(function(link) {
+                  link.classList.remove('active');
+              });
+
+              // Add the active class to the clicked nav-link
+              navLink.classList.add('active');
+          });
+      });
+  });
+</script>
+
+</body>
+
+</html>

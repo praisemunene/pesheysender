@@ -1,0 +1,266 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SMS - Login</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+        <div class="toastmessage">
+            <div class="toastmessage-content">
+                <i class="fas fa-solid fa-check check"></i>
+                <div class="message">
+                    <span class="text text-1" id="messagetitle"></span>
+                    <span class="text text-2" id="mymessage"></span>
+                </div>
+            </div>
+            <i class="fa-solid fa-xmark close"></i>
+            <div class="progress"></div>
+        </div>
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5" style="height: 600px;">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Verify your email</h1>
+                                        <h1 class="h6 text-gray-900 mb-4">Please check your email and enter the code</h1>
+                                    </div>
+                                    <form class="user" id="ver-form">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <input type="text" name="vercode" class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Enter Verification code...">
+                                        </div>
+                                       
+                                       
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                            Verify
+                                        </button>
+                                        <hr>
+                                       
+                                    </form>
+                             
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <style>
+        .toastmessage {
+                                        border-radius: 12px;
+                                        padding: 20px 35px 20px 25px;
+                                        position: fixed;
+                                        top: 90px;
+                                        right: 30px;
+                                        background: #fff;
+                                        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                                        border-left: 6px solid #4070f4;
+                                        overflow: hidden;
+                                        transform: translateX(calc(100% + 30px));
+                                        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+                                        z-index: 999;
+                                    }
+                                
+                                    .toastmessage.active {
+                                        transform: translateX(0%);
+                                
+                                    }
+                                
+                                    .progress.active:before {
+                                        animation: progress 5s linear forwards;
+                                    }
+                                
+                                    @keyframes progress {
+                                        100% {
+                                            right: 100%;
+                                
+                                        }
+                                    }
+                                
+                                    .toastmessage .toastmessage-content {
+                                        display: flex;
+                                        align-items: center;
+                                
+                                    }
+                                
+                                    .toastmessage-content .check {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        height: 35px;
+                                        width: 35px;
+                                        background-color: #4070f4;
+                                        color: #fff;
+                                        font-size: 20px;
+                                        border-radius: 50%;
+                                    }
+                                
+                                    .toastmessage-content .message {
+                                        display: flex;
+                                        flex-direction: column;
+                                        margin: 0 20px;
+                                    }
+                                
+                                    .message .text {
+                                        font-size: 16px;
+                                        font-weight: 400;
+                                        color: #666666;
+                                    }
+                                
+                                    .message .text.text-1 {
+                                        font-weight: 600;
+                                        color: #333;
+                                    }
+                                
+                                    .toastmessage .close {
+                                        position: absolute;
+                                        top: 10px;
+                                        right: 15px;
+                                        padding: 5px;
+                                        cursor: pointer;
+                                        opacity: 0.7;
+                                    }
+                                
+                                    .toastmessage .close:hover {
+                                        opacity: 1;
+                                    }
+                                
+                                    .toastmessage .progress:before {
+                                        content: '';
+                                        position: absolute;
+                                        bottom: 0;
+                                        right: 0;
+                                        background-color: #4070f4;
+                                        height: 100%;
+                                        width: 100%;
+                                    }
+                                
+                                    .toastmessage .progress {
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 0;
+                                        height: 3px;
+                                        width: 100%;
+                                        background: #ddd;
+                                    }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const loginForm = document.getElementById('ver-form');
+    
+    loginForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        const formData = new FormData(loginForm); // Create form data object
+        
+        fetch('/verifyemail/', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json()) // Parse response as JSON
+        .then(data => {
+            // Handle response data
+            console.log('Login response:', data);
+            // Redirect if login successful
+            if (data.success) {
+                message('Success', 'You are now verified.');
+                setTimeout(function() {
+                    window.location.href = "/"; // Redirect to dashboard page
+                }, 5000);
+            } else {
+                // Display error message if login failed
+               
+                message('Error', 'verification failed, Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            message('Error', 'verification failed, Please try again.');
+        });
+    });
+});
+
+
+function message(title, message) {
+                                    const toast = document.querySelector(".toastmessage");
+                                    const progress = document.querySelector(".progress");
+                                    const closeIcon = document.querySelector(".close");
+                                    toast.classList.add("active");
+                                    progress.classList.add("active");
+                                    document.querySelector('#messagetitle').innerHTML = title;
+                                    document.querySelector('#mymessage').innerHTML = message;
+
+                                    setTimeout(() => {
+                                        toast.classList.remove("active");
+
+                                    }, 5000);
+                                    setTimeout(() => {
+                                        toast.classList.remove("active");
+                                        progress.classList.remove("active");
+
+                                    }, 5300);
+                                    closeIcon.addEventListener("click", () => {
+                                        toast.classList.remove("active");
+                                        progress.classList.remove("active");
+
+                                        setTimeout(() => {
+                                            toast.classList.remove("active");
+                                            progress.classList.remove("active");
+
+                                        }, 300);
+                                    });
+                                }
+
+    </script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    
+    <!-- Core plugin JavaScript-->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+    
+    <!-- Custom scripts for all pages-->
+    <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,455 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <title> User Login</title>
+
+ <!-- Meta -->
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
+ <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+ <link rel="shortcut icon" href="favicon.ico">
+
+ <!-- FontAwesome JS-->
+ <script defer src="assets/plugins/fontawesome/js/all.min.js"></script>
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <!-- App CSS -->
+ <link id="theme-style" rel="stylesheet" href="{% static 'css/portal.css' %}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <!-- Custom CSS -->
+    <link href="{% static 'css/css/shop-homepage.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/css/shop-homepage.css' %}" rel="stylesheet">
+    <link href="{% static 'css/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+
+<body class="app app-login p-0">
+
+
+
+
+
+<header class="app-header fixed-top">
+    <div class="app-header-inner">
+     <div class="container-fluid py-2">
+      <div class="app-header-content">
+        <div class="col-auto">
+            <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none" href="#">
+             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img">
+              <title>Menu</title>
+              <path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path>
+             </svg>
+            </a>
+           </div>
+       <div class="row justify-content-end align-items-center">
+   
+      
+        <!--//col-->
+   
+   
+        <div class="app-utilities col-auto">
+         <!--//app-utility-item-->
+         <!--//app-utility-item-->
+   
+         <div class="app-utility-item app-user-dropdown dropdown">
+          <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Hi Admin <img src="{% static 'img/undraw_profile.svg' %}" alt="user profile"></a>
+          <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
+   
+           <li>
+            <hr class="dropdown-divider">
+           </li>
+           <li><a class="dropdown-item" href="?v=off">Log Out</a></li>
+          </ul>
+         </div>
+         <!--//app-user-dropdown-->
+        </div>
+        <!--//app-utilities-->
+       </div>
+       <!--//row-->
+      </div>
+      <!--//app-header-content-->
+     </div>
+     <!--//container-fluid-->
+    </div>
+    <!--//app-header-inner-->
+    <div id="app-sidepanel" class="app-sidepanel">
+     <div id="sidepanel-drop" class="sidepanel-drop"></div>
+     <div class="sidepanel-inner d-flex flex-column">
+      <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
+      <div class="app-branding">
+       <a class="app-logo" href="admin-dash"><img class="logo-icon me-2" src="{% static 'img/peshey.png' %}" alt="logo">
+        <!--<span class="logo-text">REGISTER</span>-->
+       </a>
+   
+      </div>
+      <!--//app-branding-->
+   
+      <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
+       <ul class="app-menu list-unstyled accordion" id="menu-accordion">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/mydashboard' %}">
+             <span class="nav-icon">
+              <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer" viewBox="0 0 16 16">
+               <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2zM3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z" />
+               <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z" />
+              </svg>
+             </span>
+             <span class="nav-link-text">Dashboard</span>
+            </a>
+           </li>
+
+
+        <li class="nav-item ">
+            <a class="nav-link " href="{% url 'admin/myprofile' %}">
+             <span class="nav-icon">
+              <i class="fas fa-user"></i>
+             </span>
+             <span class="nav-link-text">Profile</span>
+            </a>
+           </li>
+           
+          
+
+           
+
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/createusers' %}">
+             <span class="nav-icon">
+              <i class="fas fa-pen"></i>
+             </span>
+             <span class="nav-link-text">Create user</span>
+            </a>
+           </li>
+
+
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/updateusers' %}">
+             <span class="nav-icon">
+              <i class="fas fa-pen"></i>
+             </span>
+             <span class="nav-link-text">Update user</span>
+            </a>
+           </li>
+
+
+           <li class="nav-item active">
+            <a class="nav-link" href="{% url 'admin/createresellers' %}">
+                <span class="nav-icon">
+                    <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                     <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                     <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" />
+                     <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+                    </svg>
+                   </span>
+             <span class="nav-link-text">Create reseller</span>
+            </a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/updateresellers' %}">
+             <span class="nav-icon">
+              <i class="fas fa-pen"></i>
+             </span>
+             <span class="nav-link-text">Update reseller</span>
+            </a>
+           </li>
+
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/senderids' %}">
+             <span class="nav-icon">
+                <i class="material-icons">folder_shared</i>
+             </span>
+             <span class="nav-link-text">Request sender id</span>
+            </a>
+           </li>
+
+
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/requesttemplates' %}">
+             <span class="nav-icon"> 
+                <i class="fas fa-splotch"></i>
+             </span>
+             <span class="nav-link-text">Template approval</span>
+            </a>
+           </li>
+
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin/misreports' %}">
+             <span class="nav-icon">
+                <i class="fas fa-chalkboard"></i>
+             </span>
+             <span class="nav-link-text">MIS Reports</span>
+            </a>
+           </li>
+<hr>
+
+         <li class="nav-item has-submenu">
+          <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+          <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-1" aria-expanded="false" aria-controls="submenu-1">
+           <span class="nav-icon">
+            <i class="material-icons">kitchen</i>
+           </span>
+           <span class="nav-link-text">Credit management</span>
+           <span class="submenu-arrow">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+             <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+            </svg>
+           </span>
+           <!--//submenu-arrow-->
+          </a>
+          <!--//nav-link-->
+         
+         </li>
+      <hr>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'admin/creditshistory' %}">
+         <span class="nav-icon">
+          <i class="material-icons">schedule</i>
+         </span>
+         <span class="nav-link-text">My credit history</span>
+        </a>
+       </li>
+
+       <li class="nav-item active">
+        <a class="nav-link active" href="{% url 'admin/creditassingmentusers' %}">
+         <span class="nav-icon">
+            <i class="material-icons">loyalty</i>
+         </span>
+         <span class="nav-link-text">Credit assignment user</span>
+        </a>
+       </li>
+
+
+       <li class="nav-item ">
+        <a class="nav-link " href="{% url 'admin/creditassingmentreseller' %}">
+         <span class="nav-icon"> 
+            <i class="fas fa-splotch"></i>
+         </span>
+         <span class="nav-link-text">Credit assignment reseller</span>
+        </a>
+       </li>
+
+       <li class="nav-item">
+        <a class="nav-link" href="{% url 'admin/creditshistory' %}">
+         <span class="nav-icon">
+          <i class="material-icons">history</i>
+         </span>
+         <span class="nav-link-text">User credit history</span>
+        </a>
+       </li>
+
+
+
+
+
+        </nav>
+      <!--//app-nav-->
+      <div class="app-sidepanel-footer">
+       <nav class="app-nav app-nav-footer">
+        <ul class="app-menu footer-menu list-unstyled">
+   
+         <!--//nav-item-->
+         <li class="nav-item">
+          <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+          <a class="nav-link" href="?v=off">
+           <span class="nav-icon">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-toggle-on" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+             <path fill-rule="evenodd" d="M12 1H4a1 1 0 0 0-1 1v10.755S4 11 8 11s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z" />
+             <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+            </svg>
+           </span>
+           <span class="nav-link-text">Logout</span>
+          </a>
+          <!--//nav-link-->
+         </li>
+         <!--//nav-item-->
+        </ul>
+        <!--//footer-menu-->
+       </nav>
+      </div>
+      <!--//app-sidepanel-footer-->
+   
+     </div>
+     <!--//sidepanel-inner-->
+    </div>
+    <!--//app-sidepanel-->
+   </header>
+   <!--//app-header-->
+
+
+
+   <div id="authwrapper" class="row g-0 app-auth-wrapper" style="background: transparent;">
+    <!-- <div class="col-12 col-md-7 col-lg-12 auth-main-col text-center p-5"> -->
+  
+    
+
+        <style>
+            @media (min-width: 800px) {
+                #tableid{
+        margin-left: 160px;
+    }
+}
+             @media (min-width: 1200px) {
+    #maindiv {
+      margin-left: 290px; /* Adjust the value as needed */
+      width: 80%;
+      margin-top: -300px;
+    }
+    #container{
+        margin-left: 130px;
+    }
+    #authwrapper{
+        margin-left: 20px;
+    }
+    #tableid{
+        margin-left: 420px;
+    }
+  }
+  #maindiv{
+    overflow: visible;
+  }
+  #container{
+    overflow: visible;
+  }
+  #authwrapper{
+    overflow: visible;
+  }
+  .app{
+    background: #fff;
+  }
+.active
+{
+  color: #4e73df;
+}
+.nav-item .nav-link .active {
+        color: #4e73df; /* Change the color to your desired color */
+        /* Add any other styles you want for the active state */
+    }
+        </style>
+
+
+
+<div class="col-md-3">
+    <h3>User Credits Detail</h3>
+</div>
+<form method="post" style="margin-left: 60px; margin-top: 60px;">
+<div class="col-md-3" id="maindiv">
+<div class="form-group">
+    <label>User Id</label>
+    <input type="text" id="userid" name="userid" style="overflow-x:hidden;overflow-y:scroll" class="form-control" list="datalist_user3" placeholder="Type User Id here" autocomplete="off">
+<datalist id="datalist_user3">
+    <option value='Lounge'>Lounge</option><option value='DEMO1'>DEMO1</option><option value='Sam123'>Sam123</option><option value='nesh'>nesh</option><option value='donald11'>donald11</option><option value='JOYSMART'>JOYSMART</option><option value='praise'>praise</option><option value='miguelbarnard2'>miguelbarnard2</option><option value='BIZ'>BIZ</option><option value='WIN'>WIN</option><option value='TAACH'>TAACH</option><option value='ENTHELOTSTUDIO'>ENTHELOTSTUDIO</option><option value='Dstv'>Dstv</option><option value='Enthelot Studio'>Enthelot Studio</option><option value='wendy'>wendy</option><option value='EDMATECH'>EDMATECH</option><option value='nolan87g75644308'>nolan87g75644308</option><option value='zackbrack36086'>zackbrack36086</option><option value='Suraj shahi'>Suraj shahi</option><option value='maribelrenard31'>maribelrenard31</option><option value='KINGS'>KINGS</option><option value='Kurt'>Kurt</option><option value='fabree'>fabree</option><option value='Chapaapps '>Chapaapps </option><option value='Festus'>Festus</option><option value='MOBITEN'>MOBITEN</option><option value='JAZA'>JAZA</option><option value='BIG BIZ ENTERPRISE'>BIG BIZ ENTERPRISE</option><option value='doublewin'>doublewin</option><option value='Cronstar'>Cronstar</option><option value='FASTKASH'>FASTKASH</option><option value='instakop'>instakop</option><option value='Erick'>Erick</option><option value='Steve'>Steve</option><option value='Lapa'>Lapa</option><option value='Cartel'>Cartel</option><option value='SMART'>SMART</option><option value='SAGINA'>SAGINA</option><option value='PROMO'>PROMO</option><option value='CROWN'>CROWN</option><option value='CHOKAMATT '>CHOKAMATT </option><option value='ASHAKI '>ASHAKI </option><option value='BRIGHT'>BRIGHT</option><option value='richnyabs'>richnyabs</option><option value='Cleanertips'>Cleanertips</option><option value='GROUNDLESS'>GROUNDLESS</option><option value='GEO-LUCKY'>GEO-LUCKY</option><option value='MONICA'>MONICA</option><option value='Danish Okoth'>Danish Okoth</option><option value='manualfosbrook'>manualfosbrook</option><option value='salackermann841'>salackermann841</option><option value='caryn593856'>caryn593856</option><option value='esther95x564'>esther95x564</option><option value='berniecestark'>berniecestark</option><option value='NyaKayos Place'>NyaKayos Place</option><option value='smartkash'>smartkash</option><option value='Comptracks'>Comptracks</option><option value='Hassan'>Hassan</option><option value='alfonso57t'>alfonso57t</option><option value='brayden3663'>brayden3663</option><option value='horaciosimms115'>horaciosimms115</option><option value='sherylgoldschmid'>sherylgoldschmid</option><option value='icobell'>icobell</option><option value='icobel'>icobel</option><option value='DATING'>DATING</option><option value='Jack'>Jack</option><option value='Instamob'>Instamob</option><option value='lancebooker'>lancebooker</option><option value='jaktam'>jaktam</option><option value='alin'>alin</option><option value='koreyweekes81'>koreyweekes81</option><option value='jerroldcrews'>jerroldcrews</option><option value='estellasmyth'>estellasmyth</option><option value='vwmallan78139555'>vwmallan78139555</option><option value='aletheaschulze'>aletheaschulze</option><option value='blondellcardella'>blondellcardella</option><option value='haroldr959778321'>haroldr959778321</option><option value='corals12357'>corals12357</option><option value='modesta4841'>modesta4841</option><option value='Shawnieekakes43 '>Shawnieekakes43 </option><option value='sagribiz'>sagribiz</option><option value='Lawhan'>Lawhan</option><option value='ffgfg'>ffgfg</option><option value='Dija Mitumba Collection'>Dija Mitumba Collection</option><option value='K0mbuxha'>K0mbuxha</option><option value='LESHI'>LESHI</option><option value='gachie'>gachie</option><option value='Whitecross'>Whitecross</option><option value='HiltonMutai'>HiltonMutai</option><option value='Chematec001'>Chematec001</option><option value='Fabre '>Fabre </option><option value='Mtuku'>Mtuku</option><option value='abuhade212'>abuhade212</option><option value='LAWHAN23'>LAWHAN23</option><option value='SWITCH '>SWITCH </option><option value='LATAK'>LATAK</option><option value='unique'>unique</option><option value='JOYINCLTD'>JOYINCLTD</option><option value='vicbreezy'>vicbreezy</option><option value='GLOBAL'>GLOBAL</option><option value='Mr Clemo'>Mr Clemo</option><option value='Sms sending job'>Sms sending job</option><option value='pkoech '>pkoech </option><option value='stilecreations'>stilecreations</option><option value='toshwisdom'>toshwisdom</option><option value='MBAYAKO'>MBAYAKO</option><option value='KINYANJUI THEURI'>KINYANJUI THEURI</option><option value='Hillary '>Hillary </option><option value='richard nalyse'>richard nalyse</option><option value='BTC_College'>BTC_College</option><option value='Hillly'>Hillly</option><option value='SkillsHub'>SkillsHub</option><option value='SAMAC'>SAMAC</option><option value='APLUS CLOUD'>APLUS CLOUD</option><option value='ENTERPRIT'>ENTERPRIT</option><option value='FARMERS-PARTNER'>FARMERS-PARTNER</option><option value='gommy'>gommy</option><option value='BOSI_CONSUL'>BOSI_CONSUL</option><option value='Dija'>Dija</option><option value='Hillary Kipkirui Langat '>Hillary Kipkirui Langat </option><option value='EUROZONE'>EUROZONE</option><option value='patahustle'>patahustle</option><option value='meme_123'>meme_123</option><option value='JOSHUAWAMBU'>JOSHUAWAMBU</option><option value='internationalsms'>internationalsms</option><option value='EUROZONE SECOND HAND CLOTHES'>EUROZONE SECOND HAND CLOTHES</option><option value='NJANE'>NJANE</option><option value='BEYOBO'>BEYOBO</option><option value='collince becky'>collince becky</option><option value='hahowa'>hahowa</option><option value='Larrypos'>Larrypos</option><option value='PIZZAS'>PIZZAS</option><option value='KEYCOLLEGE'>KEYCOLLEGE</option><option value='jaameh'>jaameh</option><option value='Okix Designs '>Okix Designs </option><option value='Buganya'>Buganya</option><option value='ACFE fraud'>ACFE fraud</option><option value='JijiFiber'>JijiFiber</option><option value='sarto'>sarto</option><option value='bigteam'>bigteam</option><option value='njugunac'>njugunac</option><option value='TECHNEL'>TECHNEL</option><option value='Daniel M'>Daniel M</option><option value='we9q3old4v'>we9q3old4v</option><option value='JAMESNJANE'>JAMESNJANE</option><option value='hahowa11'>hahowa11</option><option value='richie'>richie</option><option value='patrieno'>patrieno</option><option value='daggieblanqx'>daggieblanqx</option><option value='Mbatia'>Mbatia</option><option value='34749064'>34749064</option><option value='Hon Muchemi Nginyo(Jack )'>Hon Muchemi Nginyo(Jack )</option><option value='Eng. Machani'>Eng. Machani</option><option value='SIMON KAMAU GICHARU (WAHARUN)'>SIMON KAMAU GICHARU (WAHARUN)</option><option value='Calvin Jura'>Calvin Jura</option><option value='Mary Njoki Mburu'>Mary Njoki Mburu</option><option value='Gabu '>Gabu </option><option value='GATHECHA'>GATHECHA</option><option value='kenyapages'>kenyapages</option><option value='DEMO'>DEMO</option><option value='ST LUKE TAITA'>ST LUKE TAITA</option><option value='Conrade'>Conrade</option><option value='tclgroup'>tclgroup</option><option value='nasseh'>nasseh</option><option value='asoko'>asoko</option><option value='talam'>talam</option><option value='sacag'>sacag</option><option value='mikimet'>mikimet</option><option value='alpha'>alpha</option><option value='DirectFBI'>DirectFBI</option><option value='agachango'>agachango</option><option value='samuelm'>samuelm</option><option value='MASIVEAIRWORKS'>MASIVEAIRWORKS</option><option value='JOSEMWANGI'>JOSEMWANGI</option><option value='JOYINC'>JOYINC</option><option value='Albert'>Albert</option><option value='WAZIRIMOSES'>WAZIRIMOSES</option><option value='Janek'>Janek</option><option value='Joseph Njuguna'>Joseph Njuguna</option><option value='Joseph '>Joseph </option><option value='Sandra Mukonyo'>Sandra Mukonyo</option><option value='TRIZMAC1 '>TRIZMAC1 </option><option value='MOSESWAZIRI'>MOSESWAZIRI</option><option value='TSC'>TSC</option><option value='Romiride'>Romiride</option><option value='malev'>malev</option><option value='jmwaniki'>jmwaniki</option><option value='Parish'>Parish</option><option value='0745319464'>0745319464</option><option value='eliudngaithe'>eliudngaithe</option><option value='Blacksands'>Blacksands</option><option value='jucan'>jucan</option><option value='TIMITA'>TIMITA</option><option value='Mulirodaniel'>Mulirodaniel</option><option value='KNEC'>KNEC</option><option value='Toil12 '>Toil12 </option><option value='CLINTON_HTL'>CLINTON_HTL</option><option value='CITIZEN_PN'>CITIZEN_PN</option><option value='BAMBOO_CASK'>BAMBOO_CASK</option><option value='PEPE'>PEPE</option><option value='Melop '>Melop </option><option value='KAMEMEH'>KAMEMEH</option><option value='catherine mbithe'>catherine mbithe</option><option value='BloomHealth'>BloomHealth</option><option value='BloonHealth'>BloonHealth</option><option value='MUTURIWANDUTHI '>MUTURIWANDUTHI </option><option value='SURE WIN'>SURE WIN</option><option value='CITIZEN_PRO'>CITIZEN_PRO</option><option value='JAZA BIZZ'>JAZA BIZZ</option><option value='KAAMEME'>KAAMEME</option><option value='mastee'>mastee</option><option value='WHISKEYPLANET '>WHISKEYPLANET </option><option value='WHISKEY PLANET '>WHISKEY PLANET </option><option value='said yusuf'>said yusuf</option><option value='kitaika'>kitaika</option><option value='bills'>bills</option><option value='saharawestpark@gmail.com'>saharawestpark@gmail.com</option><option value='MIREMA COUNTRY'>MIREMA COUNTRY</option><option value='EDEN BLISS GARDENS '>EDEN BLISS GARDENS </option><option value='Bourbon'>Bourbon</option><option value='PEPSVIEW'>PEPSVIEW</option><option value='reeju'>reeju</option><option value='VSPOT'>VSPOT</option><option value='MEMPHIS'>MEMPHIS</option><option value='smsairworks'>smsairworks</option><option value='SMSANN'>SMSANN</option><option value='CLIFFNECK'>CLIFFNECK</option><option value='QUIVERLOUNG'>QUIVERLOUNG</option><option value='SAYLABECKS'>SAYLABECKS</option><option value='KASSMATT'>KASSMATT</option><option value='charmlounge'>charmlounge</option>				</datalist>
+</div>
+</div>
+<div class="col-md-2" style="text-align:left">
+<div class="form-group">
+
+
+<label class='col-md-12'>&nbsp;</label>			<button id="user_search" name="user_search" style="width:80%" type="submit" class="btn btn-primary"><span class="text-lg">S e a r c h</span></button>
+</div>
+</div>
+
+
+<div class="col-md-9">
+
+    <div class="table-header">
+    <table width="98.5%" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+    <th width='10%'>User Id</th>
+    <th width='10%'>Status</th>
+                    <th width='13%'>Credits Assigned USSD</th>
+    <th width='12%'>Credits Used USSD</th>
+    <th width='13%'>Credits Available USSD</th>
+    <th width='13%'>Credits Assigned Bulksms</th>
+    <th width='12%'>Credits Used Bulksms</th>
+    <th width='13%'>Credits Available Bulksms</th>
+        
+    <th width='11%'>Expiry Date</th>
+   <!--  <th>Expired In</th> -->
+    </tr>
+    </thead>
+    </table>
+    </div>
+    <div class="table-body" style="width:100%">
+    <table width="100%" class="table table-bordered table-hover">
+    <tbody style="width:100%">
+    <tr><td width='9.4%'>Lounge</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>38010</td><td width='12.2%'>29031</td><td width='13.2%'>8979</td><td width='10.3%'>14-05-2024 00:00:00</td></tr><tr><td width='9.4%'>DEMO1</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>33</td><td width='12.2%'>0</td><td width='13.2%'>33</td><td width='10.3%'>13-05-2024 00:00:00</td></tr><tr><td width='9.4%'>Sam123</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>10-05-2024 00:00:00</td></tr><tr><td width='9.4%'>nesh</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>29-04-2024 00:00:00</td></tr><tr><td width='9.4%'>donald11</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>04-04-2024 00:00:00</td></tr><tr><td width='9.4%'>JOYSMART</td><td width='9.2%'>Inactive</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>935967</td><td width='12.2%'>935967</td><td width='13.2%'>0</td><td width='10.3%'>17-07-2024 23:59:59</td></tr><tr><td width='9.4%'>praise</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>28-03-2024 00:00:00</td></tr><tr><td width='9.4%'>miguelbarnard2</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>27-03-2024 00:00:00</td></tr><tr><td width='9.4%'>BIZ</td><td width='9.2%'>Inactive</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>200050</td><td width='12.2%'>200023</td><td width='13.2%'>27</td><td width='10.3%'>23-03-2024 23:59:59</td></tr><tr><td width='9.4%'>WIN</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>2191458</td><td width='12.2%'>2191455</td><td width='13.2%'>3</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>TAACH</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>50</td><td width='12.2%'>2</td><td width='13.2%'>48</td><td width='10.3%'>14-08-2024 23:59:59</td></tr><tr><td width='9.4%'>ENTHELOTSTUDIO</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>394</td><td width='12.2%'>245</td><td width='13.2%'>149</td><td width='10.3%'>31-12-2025 23:59:59</td></tr><tr><td width='9.4%'>Dstv</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>07-03-2024 00:00:00</td></tr><tr><td width='9.4%'>Enthelot Studio</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>5</td><td width='12.2%'>5</td><td width='13.2%'>0</td><td width='10.3%'>05-03-2024 00:00:00</td></tr><tr><td width='9.4%'>wendy</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>16</td><td width='12.2%'>0</td><td width='13.2%'>16</td><td width='10.3%'>05-03-2024 00:00:00</td></tr><tr><td width='9.4%'>EDMATECH</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>33</td><td width='12.2%'>0</td><td width='13.2%'>33</td><td width='10.3%'>01-03-2024 00:00:00</td></tr><tr><td width='9.4%'>nolan87g75644308</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>22-02-2024 00:00:00</td></tr><tr><td width='9.4%'>zackbrack36086</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>21-02-2024 00:00:00</td></tr><tr><td width='9.4%'>Suraj shahi</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>20-02-2024 00:00:00</td></tr><tr><td width='9.4%'>maribelrenard31</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>15-02-2024 00:00:00</td></tr><tr><td width='9.4%'>KINGS</td><td width='9.2%'>Inactive</td><td width='13.2%'>300010</td><td width='12.2%'>0</td><td width='13.2%'>49144</td><td width='13.2%'>33</td><td width='12.2%'>0</td><td width='13.2%'>33</td><td width='10.3%'>07-02-2024 23:59:59</td></tr><tr><td width='9.4%'>Kurt</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>fabree</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>06-01-2024 00:00:00</td></tr><tr><td width='9.4%'>Chapaapps </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Festus</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>MOBITEN</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>JAZA</td><td width='9.2%'>Active</td><td width='13.2%'>280000</td><td width='12.2%'>0</td><td width='13.2%'>8172</td><td width='13.2%'>1014003</td><td width='12.2%'>1013943</td><td width='13.2%'>60</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>BIG BIZ ENTERPRISE</td><td width='9.2%'>Inactive</td><td width='13.2%'>3240000</td><td width='12.2%'>0</td><td width='13.2%'>42945</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>doublewin</td><td width='9.2%'>Active</td><td width='13.2%'>300000</td><td width='12.2%'>0</td><td width='13.2%'>47109</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Cronstar</td><td width='9.2%'>Active</td><td width='13.2%'>880000</td><td width='12.2%'>0</td><td width='13.2%'>153045</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>FASTKASH</td><td width='9.2%'>Inactive</td><td width='13.2%'>990000</td><td width='12.2%'>0</td><td width='13.2%'>26290</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>instakop</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Erick</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Steve</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Lapa</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>45517</td><td width='12.2%'>45517</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Cartel</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>SMART</td><td width='9.2%'>Active</td><td width='13.2%'>3233500</td><td width='12.2%'>0</td><td width='13.2%'>846854</td><td width='13.2%'>924644</td><td width='12.2%'>924748</td><td width='13.2%'>-104</td><td width='10.3%'>31-12-2023 23:59:59</td></tr><tr><td width='9.4%'>SAGINA</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>63437</td><td width='12.2%'>63007</td><td width='13.2%'>430</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>PROMO</td><td width='9.2%'>Active</td><td width='13.2%'>3951400</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>1401678</td><td width='12.2%'>1401673</td><td width='13.2%'>5</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>CROWN</td><td width='9.2%'>Inactive</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>1463550</td><td width='12.2%'>1463550</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>CHOKAMATT </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>1677</td><td width='12.2%'>1610</td><td width='13.2%'>67</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>ASHAKI </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>156895</td><td width='12.2%'>153327</td><td width='13.2%'>3568</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>BRIGHT</td><td width='9.2%'>Inactive</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>2489445</td><td width='12.2%'>2489445</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>richnyabs</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Cleanertips</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>GROUNDLESS</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>603510</td><td width='12.2%'>603305</td><td width='13.2%'>205</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>GEO-LUCKY</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>MONICA</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Danish Okoth</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>manualfosbrook</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>24-09-2023 00:00:00</td></tr><tr><td width='9.4%'>salackermann841</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>caryn593856</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>esther95x564</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>berniecestark</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>NyaKayos Place</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>smartkash</td><td width='9.2%'>Active</td><td width='13.2%'>1750200</td><td width='12.2%'>0</td><td width='13.2%'>55491</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Comptracks</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Hassan</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>alfonso57t</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>brayden3663</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>horaciosimms115</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>sherylgoldschmid</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>icobell</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>66</td><td width='12.2%'>11</td><td width='13.2%'>55</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>icobel</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>DATING</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>28906</td><td width='12.2%'>28904</td><td width='13.2%'>2</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Jack</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Instamob</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>lancebooker</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>jaktam</td><td width='9.2%'>Active</td><td width='13.2%'>5000</td><td width='12.2%'>0</td><td width='13.2%'>2006</td><td width='13.2%'>3434296</td><td width='12.2%'>3434096</td><td width='13.2%'>200</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>alin</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>koreyweekes81</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>20-06-2023 00:00:00</td></tr><tr><td width='9.4%'>jerroldcrews</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>18-06-2023 00:00:00</td></tr><tr><td width='9.4%'>estellasmyth</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>vwmallan78139555</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>aletheaschulze</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>blondellcardella</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>haroldr959778321</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>corals12357</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>modesta4841</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Shawnieekakes43 </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>sagribiz</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>44332</td><td width='12.2%'>43875</td><td width='13.2%'>457</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Lawhan</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>07-04-2023 00:00:00</td></tr><tr><td width='9.4%'>ffgfg</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Dija Mitumba Collection</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>K0mbuxha</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>1037</td><td width='12.2%'>712</td><td width='13.2%'>325</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>LESHI</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>gachie</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Whitecross</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>3091</td><td width='12.2%'>2851</td><td width='13.2%'>240</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>HiltonMutai</td><td width='9.2%'>Inactive</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Chematec001</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Fabre </td><td width='9.2%'>Inactive</td><td width='13.2%'>124</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Mtuku</td><td width='9.2%'>Inactive</td><td width='13.2%'>34</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>abuhade212</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>LAWHAN23</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>66</td><td width='12.2%'>0</td><td width='13.2%'>66</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>SWITCH </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>35397</td><td width='12.2%'>33346</td><td width='13.2%'>2051</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>LATAK</td><td width='9.2%'>Active</td><td width='13.2%'>2010</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>10552</td><td width='12.2%'>8929</td><td width='13.2%'>1623</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>unique</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>885952</td><td width='12.2%'>881117</td><td width='13.2%'>4835</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>JOYINCLTD</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>664073</td><td width='12.2%'>622236</td><td width='13.2%'>41837</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>vicbreezy</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>GLOBAL</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Mr Clemo</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Sms sending job</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>pkoech </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>stilecreations</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>toshwisdom</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>MBAYAKO</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>KINYANJUI THEURI</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Hillary </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>richard nalyse</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>BTC_College</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>749766</td><td width='12.2%'>748825</td><td width='13.2%'>941</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Hillly</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>SkillsHub</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>SAMAC</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>45161</td><td width='12.2%'>41319</td><td width='13.2%'>3842</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>APLUS CLOUD</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>66</td><td width='12.2%'>7</td><td width='13.2%'>59</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>ENTERPRIT</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>66</td><td width='12.2%'>6</td><td width='13.2%'>60</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>FARMERS-PARTNER</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>gommy</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>BOSI_CONSUL</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>29898</td><td width='12.2%'>29016</td><td width='13.2%'>882</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Dija</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Hillary Kipkirui Langat </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>EUROZONE</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>156890</td><td width='12.2%'>406980</td><td width='13.2%'>293</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>patahustle</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>736</td><td width='12.2%'>78</td><td width='13.2%'>658</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>meme_123</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>JOSHUAWAMBU</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>internationalsms</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>100</td><td width='12.2%'>27</td><td width='13.2%'>73</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>EUROZONE SECOND HAND CLOTHES</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>NJANE</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>BEYOBO</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>collince becky</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>hahowa</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Larrypos</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>PIZZAS</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>202</td><td width='12.2%'>137</td><td width='13.2%'>65</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>KEYCOLLEGE</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>2</td><td width='12.2%'>1</td><td width='13.2%'>1</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>jaameh</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Okix Designs </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Buganya</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>ACFE fraud</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>16</td><td width='12.2%'>0</td><td width='13.2%'>16</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>JijiFiber</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>sarto</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>bigteam</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>njugunac</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>TECHNEL</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Daniel M</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>we9q3old4v</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>JAMESNJANE</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>16</td><td width='12.2%'>0</td><td width='13.2%'>16</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>hahowa11</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>richie</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>patrieno</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>daggieblanqx</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Mbatia</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>34749064</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Hon Muchemi Nginyo(Jack )</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Eng. Machani</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>SIMON KAMAU GICHARU (WAHARUN)</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Calvin Jura</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Mary Njoki Mburu</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Gabu </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>12</td><td width='12.2%'>0</td><td width='13.2%'>12</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>GATHECHA</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>44348</td><td width='12.2%'>44325</td><td width='13.2%'>23</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>kenyapages</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>33</td><td width='12.2%'>0</td><td width='13.2%'>33</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>DEMO</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>4423</td><td width='12.2%'>4419</td><td width='13.2%'>4</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>ST LUKE TAITA</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Conrade</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>tclgroup</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>nasseh</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>asoko</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>talam</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>64</td><td width='12.2%'>0</td><td width='13.2%'>64</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>sacag</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>mikimet</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>alpha</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>DirectFBI</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>agachango</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>samuelm</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>MASIVEAIRWORKS</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>JOSEMWANGI</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>211680</td><td width='12.2%'>211317</td><td width='13.2%'>363</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>JOYINC</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>373528</td><td width='12.2%'>352530</td><td width='13.2%'>20998</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Albert</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>WAZIRIMOSES</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>201430</td><td width='12.2%'>201408</td><td width='13.2%'>22</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Janek</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Joseph Njuguna</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Joseph </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Sandra Mukonyo</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>TRIZMAC1 </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>28770</td><td width='12.2%'>28767</td><td width='13.2%'>3</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>MOSESWAZIRI</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>TSC</td><td width='9.2%'>Inactive</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Romiride</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>malev</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>jmwaniki</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>23</td><td width='12.2%'>0</td><td width='13.2%'>23</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Parish</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>0745319464</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>eliudngaithe</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Blacksands</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>jucan</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>TIMITA</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Mulirodaniel</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>KNEC</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Toil12 </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>CLINTON_HTL</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>200032</td><td width='12.2%'>192684</td><td width='13.2%'>7348</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>CITIZEN_PN</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>1478770</td><td width='12.2%'>1478767</td><td width='13.2%'>3</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>BAMBOO_CASK</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>18123</td><td width='12.2%'>17688</td><td width='13.2%'>435</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>PEPE</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>986269</td><td width='12.2%'>985868</td><td width='13.2%'>401</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Melop </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>KAMEMEH</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>4</td><td width='12.2%'>4</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>catherine mbithe</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>BloomHealth</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>5</td><td width='12.2%'>0</td><td width='13.2%'>5</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>BloonHealth</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>MUTURIWANDUTHI </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>259341</td><td width='12.2%'>259287</td><td width='13.2%'>54</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>SURE WIN</td><td width='9.2%'>Active</td><td width='13.2%'>137537</td><td width='12.2%'>9</td><td width='13.2%'>6571</td><td width='13.2%'>8580434</td><td width='12.2%'>8580428</td><td width='13.2%'>6</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>CITIZEN_PRO</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>10545141</td><td width='12.2%'>10545131</td><td width='13.2%'>10</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>JAZA BIZZ</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>8941472</td><td width='12.2%'>8941467</td><td width='13.2%'>5</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>KAAMEME</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>261054</td><td width='12.2%'>261054</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>mastee</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>WHISKEYPLANET </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>417</td><td width='12.2%'>417</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>WHISKEY PLANET </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>said yusuf</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>kitaika</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>bills</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>saharawestpark@gmail.com</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>MIREMA COUNTRY</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>EDEN BLISS GARDENS </td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>234015</td><td width='12.2%'>233900</td><td width='13.2%'>115</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>Bourbon</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>66</td><td width='12.2%'>0</td><td width='13.2%'>66</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>PEPSVIEW</td><td width='9.2%'>Active</td><td width='13.2%'>18000</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>99406</td><td width='12.2%'>99406</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>reeju</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>VSPOT</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>20</td><td width='12.2%'>15</td><td width='13.2%'>5</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>MEMPHIS</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>smsairworks</td><td width='9.2%'>Active</td><td width='13.2%'>100</td><td width='12.2%'>0</td><td width='13.2%'>-1</td><td width='13.2%'>15128073</td><td width='12.2%'>15128073</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>SMSANN</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>626122</td><td width='12.2%'>626106</td><td width='13.2%'>16</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>CLIFFNECK</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>QUIVERLOUNG</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>17343</td><td width='12.2%'>17343</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>SAYLABECKS</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>147</td><td width='12.2%'>147</td><td width='13.2%'>0</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>KASSMATT</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>540930</td><td width='12.2%'>540898</td><td width='13.2%'>32</td><td width='10.3%'>31-12-2024 23:59:59</td></tr><tr><td width='9.4%'>charmlounge</td><td width='9.2%'>Active</td><td width='13.2%'>0</td><td width='12.2%'>0</td><td width='13.2%'>0</td><td width='13.2%'>28055</td><td width='12.2%'>28053</td><td width='13.2%'>2</td><td width='10.3%'>31-12-2024 23:59:59</td></tr>				</tbody>
+    </table>
+</form>
+
+
+</div>
+<!--************************CSV DOwnload*******************************-->
+<div class="col-md-1">
+<form method="post" action="csv_download.php">
+<input type="hidden" name="csv_query" value="select * from user_master where cust_id='smsairworks' order by u_id desc">
+<div style="text-align:center" class="form-group">
+    <button type="submit" value="DOWNLOAD CSV" name="download_User_credits_detail_csv" style="background:none;border:none;height:40px;width:40px"><img style="width:35px;height:35px" src="image/excel-logo.png"/></button>
+    <span class="help-block" style="text-align:center;font-size:10px">Click To Download CSV.</span>
+</div>
+</form>
+<!-- </div> -->
+
+
+  
+      
+    
+  
+    </div>
+   </div>
+  
+
+
+
+
+
+
+
+   <footer class="app-footer">
+    <div class="container text-center py-3">
+   
+     <small class="copyright"> All Rights reserved 2022</small>
+   
+    </div>
+   </footer>
+
+   <script src="{% static 'js/js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/js/bootstrap.min.js' %}"></script>
+   
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // Get all nav-link elements
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      // Add click event listener to each nav-link
+      navLinks.forEach(function(navLink) {
+          navLink.addEventListener('click', function(event) {
+              // Prevent the default behavior of the link
+            //   event.preventDefault();
+              
+              // Remove the active class from all nav-links
+              navLinks.forEach(function(link) {
+                  link.classList.remove('active');
+              });
+
+              // Add the active class to the clicked nav-link
+              navLink.classList.add('active');
+          });
+      });
+  });
+</script>
+
+</body>
+
+</html>
